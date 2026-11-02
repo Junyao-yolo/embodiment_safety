@@ -158,8 +158,13 @@ def main():
                 rc = proc.poll()
                 if rc is None:
                     if time.monotonic()-start > args.wall_timeout_s:
-                        row['status'] = 'wall_timeout'
-                        raise RuntimeError('Collector wall-time limit: '+str(dest))
+                        stop_group(proc)
+                        jobs.remove(job)
+                        log.close()
+                        row.update(status='wall_timeout', failure_reason='wall_timeout',
+                                   wall_s=time.monotonic()-start, returncode=proc.poll())
+                        completed = True
+                        save()
                     continue
                 completed = True
                 jobs.remove(job)
