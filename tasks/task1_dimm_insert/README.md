@@ -1,9 +1,36 @@
-# Task1：当前 SERL 训练交付
+# Task1：DIMM 安装
 
 所有命令在远端执行：
 ```bash
 ssh isaac-b "cd /mnt/data2/wjy_SERL/Embodied_Safety && ..."
 ```
+
+
+## Diffusion Policy
+
+Task1 与 Task2 共用项目级训练、评估和官方 Workspace。使用说明：
+
+`/mnt/data2/wjy_SERL/Embodied_Safety/learning/README.md`
+
+在项目根目录执行：
+
+```bash
+algos/diffusion_policy/.venv/bin/python -B train.py task=task1_image training.num_epochs=100
+```
+
+配置 `task1_image` 使用三路 RGB256、两帧观测、state33 与 7 维动作；`task1_official_image` 使用外部/右腕两路 RGB240 与实测 9 维本体状态。107 条示范按完整回合划分为 96 条训练、11 条验证。
+
+当前数据：`/mnt/data2/wjy_SERL/Embodied_Safety/outputs/datasets/task1/diffusion_parallel_diverse_new_wrist_v001`。
+
+任务配置：`/mnt/data2/wjy_SERL/Embodied_Safety/learning/config/task/task1_image.yaml`。
+
+物理执行在 `env/`，人工采集在 `teleop/`，场景在 `scene/`。正在运行的 3090 实验直接引用 `env/`，这次不改名。动作执行适配在 `learning/controller/task1_controller.py`。
+
+新训练输出：`/mnt/data2/wjy_SERL/Embodied_Safety/outputs/runs/task1_dimm_insert/diffusion_policy`。
+
+## SERL 环境与实验
+
+下述 state31、单帧接口和历史数据量属于 SERL；Diffusion Policy 输入编码与当前数据划分见上面的配置。
 
 ## 当前接口
 

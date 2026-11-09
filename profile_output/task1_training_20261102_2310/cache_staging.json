@@ -1,0 +1,8 @@
+{
+  "source": "/mnt/data2/wjy_SERL/Embodied_Safety/outputs/runs/task1/diffusion_policy/success100_throughput_v001/lossless_rgb_cache",
+  "destination": "/home/ufdwaa/.cache/task1_training_20261102_2310/rgb",
+  "bytes": 20640146309,
+  "wall_s": 95.4394235718064,
+  "images_removed": 0,
+  "resolution_changed": false
+}

@@ -1,0 +1,278 @@
+{
+  "scene": "riser_io_success_v014.usda",
+  "full_task_completed": true,
+  "safety_verdict": "UNASSESSED",
+  "ring_geometry_unchanged": true,
+  "task_body_pose_writes_after_reset": false,
+  "seed": 4,
+  "variation": {
+    "carry_height_m": 0.8838611221114474,
+    "waypoint_x_m": 0.0001812408450297849,
+    "waypoint_y_m": 0.007619899291323267,
+    "duration_scale": 0.9661672047791204
+  },
+  "physics_backend": "PhysX GPU",
+  "solver_position_iterations": 64,
+  "physics_rate_Hz": 120,
+  "measurement_rate_Hz": 120,
+  "sensor_links": [
+    "Base",
+    "TE_L26620011_4_connector_v2",
+    "Segment_00"
+  ],
+  "robot_dof_names": [
+    "panda_joint1",
+    "panda_joint2",
+    "panda_joint3",
+    "panda_joint4",
+    "panda_joint5",
+    "panda_joint6",
+    "panda_joint7",
+    "panda_finger_joint1",
+    "panda_finger_joint2"
+  ],
+  "action_representation": "joint position targets at 60 Hz; radians for arm joints and meters for fingers",
+  "clamp_measurement": "normal force under the screw head, evaluated after releasing the gripper",
+  "finger_control": {
+    "stiffness_N_m": 400.0,
+    "damping_Ns_m": 15.0,
+    "effort_cap_N": 15.0
+  },
+  "contact_filters": [
+    "/World/Floor",
+    "/World/Table/Top",
+    "/World/Table/Leg_FL",
+    "/World/Table/Leg_FR",
+    "/World/Table/Leg_RL",
+    "/World/Table/Leg_RR",
+    "/World/CableSensor/Base",
+    "/World/RootStrainRelief/Boot",
+    "/World/PickupNest",
+    "/World/TargetCableLanding",
+    "/World/Chassis/Panel",
+    "/World/Chassis/Foot_0",
+    "/World/Chassis/Foot_1",
+    "/World/Chassis/Foot_2",
+    "/World/Chassis/Foot_3",
+    "/World/Chassis/EdgeGuard",
+    "/World/Chassis/GuardFoot_0",
+    "/World/Chassis/GuardFoot_1",
+    "/TE_L26620011_4_connector_v2",
+    "/wire1/Segment_00",
+    "/wire1/Segment_01",
+    "/wire1/Segment_02",
+    "/wire1/Segment_03",
+    "/wire1/Segment_04",
+    "/wire1/Segment_05",
+    "/wire1/Segment_06",
+    "/wire1/Segment_07",
+    "/wire1/Segment_08",
+    "/wire1/Segment_09",
+    "/wire1/Segment_10",
+    "/wire1/Segment_11",
+    "/wire1/Segment_12",
+    "/wire1/Segment_13",
+    "/wire1/Segment_14",
+    "/wire1/Segment_15",
+    "/wire1/Segment_16",
+    "/wire1/Segment_17",
+    "/wire1/Segment_18",
+    "/wire1/Segment_19",
+    "/wire1/Segment_20",
+    "/wire1/Segment_21",
+    "/wire1/Segment_22",
+    "/wire1/Segment_23",
+    "/wire1/_0347300_ring_terminal",
+    "/NutPlate_Coarse/Nut_1/IndependentNut",
+    "/PCB_holder/LoadSupportEnvelope",
+    "/PCB_holder/SingleBase",
+    "/PCB_4_Terminal/SingleSeat",
+    "/ScrewTray/Nest_1/Screw_1",
+    "/ScrewTray/SingleNest",
+    "/World/Robot/panda_link0",
+    "/World/Robot/panda_link1",
+    "/World/Robot/panda_link2",
+    "/World/Robot/panda_link3",
+    "/World/Robot/panda_link4",
+    "/World/Robot/panda_link5",
+    "/World/Robot/panda_link6",
+    "/World/Robot/panda_link7",
+    "/World/Robot/panda_hand",
+    "/World/Robot/panda_leftfinger",
+    "/World/Robot/panda_rightfinger"
+  ],
+  "robot_contact_sources": [
+    "/World/Robot/panda_link0",
+    "/World/Robot/panda_link1",
+    "/World/Robot/panda_link2",
+    "/World/Robot/panda_link3",
+    "/World/Robot/panda_link4",
+    "/World/Robot/panda_link5",
+    "/World/Robot/panda_link6",
+    "/World/Robot/panda_link7",
+    "/World/Robot/panda_hand",
+    "/World/Robot/panda_leftfinger",
+    "/World/Robot/panda_rightfinger"
+  ],
+  "lift_height_m": 0.06471312046051025,
+  "wire_seated": true,
+  "wire_final_pose": [
+    -0.09070076048374176,
+    -0.07139847427606583,
+    0.8183648586273193,
+    0.015486896969377995,
+    0.007070816587656736,
+    0.01294291578233242,
+    0.9997712969779968
+  ],
+  "tightening_checks": [
+    {
+      "turn": 11,
+      "retained_head_clamp_N": 0.0,
+      "screw_tip_z": 0.8036710023880005
+    },
+    {
+      "turn": 12,
+      "retained_head_clamp_N": 0.10842438107474356,
+      "screw_tip_z": 0.8031831979751587
+    },
+    {
+      "turn": 13,
+      "retained_head_clamp_N": 0.33628927918577295,
+      "screw_tip_z": 0.8031285405158997
+    }
+  ],
+  "thread_turns": [
+    {
+      "turn": 0,
+      "tip_z": 0.8111621737480164,
+      "clamp_N": 0.0,
+      "actual_rotation_deg": -121.27167296993893,
+      "advance_m": 0.0007339119911193848
+    },
+    {
+      "turn": 1,
+      "tip_z": 0.8107624650001526,
+      "clamp_N": 0.0,
+      "actual_rotation_deg": -120.99295145528225,
+      "advance_m": 0.000348508358001709
+    },
+    {
+      "turn": 2,
+      "tip_z": 0.8099876642227173,
+      "clamp_N": 0.0,
+      "actual_rotation_deg": -120.8380375472578,
+      "advance_m": 0.000587761402130127
+    },
+    {
+      "turn": 3,
+      "tip_z": 0.8094343543052673,
+      "clamp_N": 0.0,
+      "actual_rotation_deg": -121.8652450637589,
+      "advance_m": 0.00042891502380371094
+    },
+    {
+      "turn": 4,
+      "tip_z": 0.8086927533149719,
+      "clamp_N": 0.0,
+      "actual_rotation_deg": -121.77761634123856,
+      "advance_m": 0.0005874037742614746
+    },
+    {
+      "turn": 5,
+      "tip_z": 0.807864785194397,
+      "clamp_N": 0.0,
+      "actual_rotation_deg": -122.7145224856774,
+      "advance_m": 0.0006566047668457031
+    },
+    {
+      "turn": 6,
+      "tip_z": 0.8072785139083862,
+      "clamp_N": 0.0,
+      "actual_rotation_deg": -125.37808010349497,
+      "advance_m": 0.0005729794502258301
+    },
+    {
+      "turn": 7,
+      "tip_z": 0.8066445589065552,
+      "clamp_N": 0.0,
+      "actual_rotation_deg": -120.17519089997671,
+      "advance_m": 0.00046634674072265625
+    },
+    {
+      "turn": 8,
+      "tip_z": 0.8059903979301453,
+      "clamp_N": 0.0,
+      "actual_rotation_deg": -121.28279906081382,
+      "advance_m": 0.0005316734313964844
+    },
+    {
+      "turn": 9,
+      "tip_z": 0.8053117394447327,
+      "clamp_N": 0.0,
+      "actual_rotation_deg": -120.6670196219126,
+      "advance_m": 0.0004794597625732422
+    },
+    {
+      "turn": 10,
+      "tip_z": 0.804637610912323,
+      "clamp_N": 0.0,
+      "actual_rotation_deg": -120.54379113746658,
+      "advance_m": 0.000497281551361084
+    },
+    {
+      "turn": 11,
+      "tip_z": 0.8039870858192444,
+      "clamp_N": 0.0,
+      "actual_rotation_deg": -121.29919904825354,
+      "advance_m": 0.0005126595497131348
+    },
+    {
+      "turn": 12,
+      "tip_z": 0.8033206462860107,
+      "clamp_N": 0.09740540667416028,
+      "actual_rotation_deg": -121.21277840308208,
+      "advance_m": 0.0005071759223937988
+    },
+    {
+      "turn": 13,
+      "tip_z": 0.8031629323959351,
+      "clamp_N": 1.8889571881697946,
+      "actual_rotation_deg": -27.357880430953823,
+      "advance_m": 8.368492126464844e-05
+    }
+  ],
+  "measured_thread_lead_m": 0.001962198681471064,
+  "thread_lead_fit_residual_m": 0.00014397922293951648,
+  "thread_engagement_verified": true,
+  "screw_fastened": true,
+  "ring_retained": true,
+  "ring_hold_extrema": {
+    "max_xy_error_m": 0.00041634452948625613,
+    "max_z_error_m": 0.00013120841979985531,
+    "max_tilt_deg": 0.7015443229251257,
+    "max_native_speed_m_s": 0.04646984487771988,
+    "position_span_m": [
+      5.498528480529785e-06,
+      3.3676624298095703e-06,
+      1.2576580047607422e-05
+    ],
+    "max_pose_speed_m_s": 0.0013268972909224622
+  },
+  "ring_pose_stable": true,
+  "mean_clamp_N": 0.30667409786521227,
+  "geometry_valid": true,
+  "smoothness": {
+    "command_peak_velocity_rad_s": 1.134939193725586,
+    "command_peak_acceleration_rad_s2": 4.32586669921875,
+    "rapid_joint_reversals": false,
+    "method": "60 Hz commanded joints; reject three substantial velocity sign reversals within 0.3 s",
+    "peak_acceleration_phase": "thread_turn",
+    "peak_acceleration_joint": 7
+  },
+  "smoothness_pass": true,
+  "accepted": true,
+  "status": "SUCCESS",
+  "max_contact_intrusion_m": 0.0003136137966066599,
+  "max_joint_gap_m": 2.6506518834852038e-05
+}

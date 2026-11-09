@@ -100,12 +100,17 @@ def apply_session_cameras(stage, safety: Optional[Dict[str, Any]] = None, calib:
         except Exception:
             calib = {}
 
-    cfg = safety.get("cameras") or {}
+    cfg = dict(safety.get("cameras") or {})
+    wrist_path = Path(__file__).resolve().parents[2] / "configs/wrist_cameras.json"
+    wrist_cfg = json.loads(wrist_path.read_text(encoding="utf-8"))
+    for key in ("wrist_left", "wrist_right"):
+        cfg[key] = dict(cfg.get(key) or {}, **wrist_cfg[key])
     if not bool(cfg.get("enabled", True)):
         return {"ok": False, "skipped": True, "reason": "cameras.enabled=false"}
 
     stage.SetEditTarget(stage.GetSessionLayer())
-    report: Dict[str, Any] = {"created": [], "errors": [], "paths": {}}
+    report: Dict[str, Any] = {"created": [], "errors": [], "paths": {},
+                              "wrist_config": wrist_cfg, "wrist_config_path": str(wrist_path)}
 
     robot_path = (safety.get("paths") or {}).get("robot", "/World/Robot")
     hand = _find_prim_by_name(stage, robot_path, cfg.get("wrist_parent_name", "panda_hand"))

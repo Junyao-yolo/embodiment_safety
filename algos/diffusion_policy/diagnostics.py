@@ -3,15 +3,19 @@ from collections import defaultdict
 import numpy as np
 
 def label(row):
+    if row.get("source_kind") == "native_collection":
+        return "native/" + row["stage"]
     if row["stage"] == "native":
         start = (int(row["tick"]) // 50) * 5
         return "native_time_%03d_%03ds" % (start, start+5)
     return "historical/" + row["stage"]
 
-def balanced_ids(data, per_group=8):
+def balanced_ids(data, per_group=8, per_episode=False):
     groups = defaultdict(list)
     for i, k in enumerate(data.starts):
-        groups[label(data.rows[k+1])].append(i)
+        row=data.rows[k+1]
+        key=(row["episode"],label(row)) if per_episode else label(row)
+        groups[key].append(i)
     return sorted(i for ids in groups.values()
                   for i in np.asarray(ids)[np.linspace(0,len(ids)-1,min(per_group,len(ids)),dtype=int)].tolist())
 

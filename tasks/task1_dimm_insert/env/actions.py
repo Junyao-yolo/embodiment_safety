@@ -21,8 +21,13 @@ def apply_velocity(controller,action,dt,cfg):
     goal=p+a[:3]*cfg["translation_m_s"]*dt
     actual,_=controller.pose()
     lead=goal-actual;distance=np.linalg.norm(lead)
-    limited=distance>cfg["max_goal_lead_m"]
-    if limited:goal=actual+lead*(cfg["max_goal_lead_m"]/distance)
+    max_lead=cfg["max_goal_lead_m"]
+    if cfg.get("goal_lead_horizon_s"):
+        # Slow (contact-scale) commands keep the base lead; only fast free-space commands get more.
+        speed=np.linalg.norm(a[:3])*cfg["translation_m_s"]
+        max_lead=float(np.clip(speed*cfg["goal_lead_horizon_s"],max_lead,cfg["max_free_goal_lead_m"]))
+    limited=distance>max_lead
+    if limited:goal=actual+lead*(max_lead/distance)
     controller.goal=(goal,Rotation.from_rotvec(a[3:6]*cfg["rotation_rad_s"]*dt)*R)
     controller.width_goal=float(np.clip(controller.width_goal+a[6]*cfg["gripper_m_s"]*dt,0,.08))
     return {"goal_lead_limited":bool(limited),"target_position_m":goal.tolist(),

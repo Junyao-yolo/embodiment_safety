@@ -1,0 +1,10 @@
+{
+  "method": "dagger",
+  "randomize": true,
+  "noise_mm_s": 0.0,
+  "expert_probability": 0.8,
+  "recovery_distance_m": 0.015,
+  "n_action_steps": 8,
+  "fixed_noise": true,
+  "checkpoint": "/mnt/data2/wjy_SERL/Embodied_Safety/tasks/task2_riser_io/dp_bc/runs/pilot5/policy.pt"
+}

@@ -1,0 +1,5 @@
+{
+  "task1_result": "/mnt/data2/wjy_SERL/Embodied_Safety/outputs/runs/task1/diffusion_policy/success100_bc_v001/train/result.json",
+  "task1_started_unix": 1793634021.2274637,
+  "required_steps": 100000
+}

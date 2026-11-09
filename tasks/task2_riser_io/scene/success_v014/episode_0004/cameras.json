@@ -1,0 +1,112 @@
+{
+  "external": {
+    "path": "/World/ExternalCamera",
+    "resolution": [
+      640,
+      480
+    ],
+    "focal_length": 23.0,
+    "horizontal_aperture": 20.954999923706055,
+    "vertical_aperture": 15.290800094604492,
+    "local_matrix": [
+      [
+        0.9126032714663547,
+        0.40884626561692694,
+        0.0,
+        0.0
+      ],
+      [
+        -0.2379001506328101,
+        0.5310271219482368,
+        0.813273455907826,
+        0.0
+      ],
+      [
+        0.3325038153732872,
+        -0.7421960164582303,
+        0.5818816769032527,
+        0.0
+      ],
+      [
+        0.12999999999999998,
+        -0.5699999999999998,
+        1.35,
+        1.0
+      ]
+    ]
+  },
+  "wrist_left": {
+    "path": "/World/Robot/panda_hand/WristCam_L",
+    "resolution": [
+      640,
+      480
+    ],
+    "focal_length": 11.0,
+    "horizontal_aperture": 24.0,
+    "vertical_aperture": 15.290800094604492,
+    "local_matrix": [
+      [
+        0.7534247171089384,
+        0.6575341783126675,
+        3.8630372373171795e-08,
+        0.0
+      ],
+      [
+        0.561755126458117,
+        -0.6436778973213502,
+        0.5197210236251664,
+        0.0
+      ],
+      [
+        0.34173436108670896,
+        -0.3915706434995491,
+        -0.854336033187181,
+        0.0
+      ],
+      [
+        0.048,
+        -0.055,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "wrist_right": {
+    "path": "/World/Robot/panda_hand/WristCam_R",
+    "resolution": [
+      640,
+      480
+    ],
+    "focal_length": 11.0,
+    "horizontal_aperture": 24.0,
+    "vertical_aperture": 15.290800094604492,
+    "local_matrix": [
+      [
+        -0.7534247166924928,
+        0.6575341787898448,
+        -4.0890111158153886e-08,
+        0.0
+      ],
+      [
+        0.5617551268992274,
+        0.6436778987900008,
+        0.519721021329446,
+        0.0
+      ],
+      [
+        0.34173436127973744,
+        0.3915706402840412,
+        -0.8543360345837439,
+        0.0
+      ],
+      [
+        0.048,
+        0.055,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "external_configuration": "fixed collection camera; task2 has no saved external camera calibration",
+  "timestamp": "simulation time; all cameras rendered without intervening physics steps"
+}

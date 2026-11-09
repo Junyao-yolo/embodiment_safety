@@ -1,0 +1,52 @@
+{
+  "batch4_step5000": {
+    "source": "/mnt/data2/wjy_SERL/Embodied_Safety/outputs/runs/task1/diffusion_policy/success100_bc_v001/batch4_archived/last.pt",
+    "checkpoint": "/mnt/data2/wjy_SERL/Embodied_Safety/profile_output/task1_training_20261102_2310/batch4_step5000.pt",
+    "step": 5000,
+    "batch_size": 4,
+    "keys": [
+      "model",
+      "ema",
+      "optimizer",
+      "step",
+      "best",
+      "config",
+      "torch_rng",
+      "cuda_rng",
+      "sampler",
+      "python_rng",
+      "numpy_rng"
+    ],
+    "sampler_cursor": 26000,
+    "sampler_order_length": 124592,
+    "optimizer_states": 334,
+    "data": "/mnt/data2/wjy_SERL/Embodied_Safety/outputs/datasets/task1/diffusion_success100_v001",
+    "bytes": 897466589
+  },
+  "batch16_step500": {
+    "source": "/mnt/data2/wjy_SERL/Embodied_Safety/outputs/runs/task1/diffusion_policy/success100_bc_v001/train/resume.pt",
+    "checkpoint": "/mnt/data2/wjy_SERL/Embodied_Safety/profile_output/task1_training_20261102_2310/batch16_step500.pt",
+    "step": 500,
+    "batch_size": 16,
+    "keys": [
+      "model",
+      "ema",
+      "optimizer",
+      "step",
+      "best",
+      "config",
+      "torch_rng",
+      "cuda_rng",
+      "sampler",
+      "python_rng",
+      "numpy_rng"
+    ],
+    "sampler_cursor": 8000,
+    "sampler_order_length": 124592,
+    "optimizer_states": 334,
+    "data": "/mnt/data2/wjy_SERL/Embodied_Safety/outputs/datasets/task1/diffusion_success100_v001",
+    "bytes": 897549117
+  },
+  "batch4_last_logged_step": 7626,
+  "preserved_at": 1793632320.6930034
+}

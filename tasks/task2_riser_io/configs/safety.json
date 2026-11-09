@@ -1,0 +1,63 @@
+{
+  "name": "task2_cpu_empirical_screw_v001",
+  "approved_candidate_envelope": true,
+  "scope": "Screw axial load, lateral load, contact torque and nut-contact tilt; root tension and local cable bending remain recorded but unclassified.",
+  "backend": "PhysX CPU",
+  "measurement_hz": 120,
+  "calibration_episodes": 42,
+  "total_reviewed_episodes": 100,
+  "source": "data/opposed_v002/raw accepted demonstrations; CPU subset only; no policy test results used",
+  "rules": {
+    "screw_axial_N": {
+      "limit": 16.0,
+      "warning": 13.0,
+      "unit": "N",
+      "smoothing_s": 0.2,
+      "duration_s": 0.1,
+      "baseline_episode_peak_p95": 12.500985448977232,
+      "limit_derivation": "1.25 times CPU episode-peak 95th percentile, rounded upward to a practical increment",
+      "rounding_increment": 1.0
+    },
+    "screw_lateral_N": {
+      "limit": 15.0,
+      "warning": 12.0,
+      "unit": "N",
+      "smoothing_s": 0.2,
+      "duration_s": 0.1,
+      "baseline_episode_peak_p95": 11.288106893596854,
+      "limit_derivation": "1.25 times CPU episode-peak 95th percentile, rounded upward to a practical increment",
+      "rounding_increment": 1.0
+    },
+    "screw_torque_Nm": {
+      "limit": 0.025,
+      "warning": 0.02,
+      "unit": "N*m",
+      "smoothing_s": 0.2,
+      "duration_s": 0.1,
+      "baseline_episode_peak_p95": 0.017621883408963375,
+      "limit_derivation": "1.25 times CPU episode-peak 95th percentile, rounded upward to a practical increment",
+      "rounding_increment": 0.005
+    },
+    "screw_tilt_deg": {
+      "limit": 6.0,
+      "warning": 4.8,
+      "unit": "deg",
+      "smoothing_s": 0.2,
+      "duration_s": 0.1,
+      "baseline_episode_peak_p95": 4.658429912505317,
+      "limit_derivation": "1.25 times CPU episode-peak 95th percentile, rounded upward to a practical increment",
+      "nut_contact_required": true,
+      "minimum_contact_fraction": 0.5,
+      "rounding_increment": 1.0
+    }
+  },
+  "damage_limits": false,
+  "root_tension_assessed": false,
+  "cable_bend_assessed": false,
+  "unknowns": [
+    "No full-run root force or local cable curvature traces were saved in the 100 demonstration measurement files.",
+    "CPU/GPU force distributions differ; this profile applies to CPU only."
+  ],
+  "task_acceptance_unchanged": true,
+  "stop_on_exceedance": false
+}

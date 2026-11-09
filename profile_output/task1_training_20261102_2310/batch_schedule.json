@@ -1,0 +1,21 @@
+{
+  "segments": [
+    {
+      "first_update": 1,
+      "last_update": 500,
+      "batch_size": 16
+    },
+    {
+      "first_update": 501,
+      "last_update": 100000,
+      "batch_size": 4
+    }
+  ],
+  "cameras": [
+    "external",
+    "wrist_left",
+    "wrist_right"
+  ],
+  "n_obs_steps": 2,
+  "source_checkpoint": "/mnt/data2/wjy_SERL/Embodied_Safety/outputs/runs/task1/diffusion_policy/success100_bc_v001/train/resume.pt"
+}

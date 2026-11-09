@@ -3,6 +3,7 @@ import os,sys,time,json,traceback
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2];sys.path.insert(0,str(ROOT))
 from algos.diffusion_policy.inference import GraphPolicy
+from algos.diffusion_policy.action_chunk import ActionChunk
 import numpy as np
 import torch
 from algos.diffusion_policy.common import CAMERAS,build,digest
@@ -19,8 +20,13 @@ try:
  state=torch.load(cp,map_location="cpu",weights_only=False);model=build(state["config"])
  contract=validate_config(state["config"])
  if meta.get("interface_version")!=contract["interface_version"]:raise ValueError("Checkpoint metadata interface mismatch")
+ trained_action_steps=model.n_action_steps
+ action_steps=int(os.environ.get("TASK1_DP_ACTION_STEPS",str(trained_action_steps)))
+ if not 1 <= action_steps <= model.horizon-model.n_obs_steps+1:raise ValueError("Invalid execution chunk")
+ model.n_action_steps=action_steps
+ chunk=ActionChunk(action_steps)
  model.load_state_dict(state["ema"]);model=model.cuda().eval()
- write("loaded_checkpoint.json",dict(path=str(cp),sha256=meta["sha256"],algorithm="diffusion_policy",weights="ema",seed=seed,**contract))
+ write("loaded_checkpoint.json",dict(path=str(cp),sha256=meta["sha256"],algorithm="diffusion_policy",weights="ema",seed=seed,trained_action_steps=trained_action_steps,runtime_action_steps=action_steps,**contract))
  history=[];n=0;graph=None
  while True:
   request=OUT/f"request_{n:03d}.json";deadline=time.monotonic()+600
@@ -33,21 +39,29 @@ try:
   with np.load(OUT/f"obs_{n:03d}.npz",allow_pickle=False) as f:obs={k:f[k][0].copy() for k in f.files}
   history.append(obs);history=history[-2:]
   pair=history if len(history)==2 else [history[0],history[0]]
-  batch={k:torch.from_numpy(np.stack([o[k] for o in pair])).permute(0,3,1,2)[None].float().cuda()/255 for k in CAMERAS}
-  batch["state"]=torch.from_numpy(encode_state(np.stack([o["state"] for o in pair]),contract["state_representation"]))[None].float().cuda()
-  torch.cuda.synchronize()
-  preprocess_ms=(time.perf_counter()-request_start)*1000
-  capture_ms=0.
-  if graph is None:
-   graph=GraphPolicy(model,batch);capture_ms=graph.capture_s*1000
-  infer_start=time.perf_counter()
-  action=graph.predict_action(batch)["action"][0,0].cpu().numpy().copy()
-  inference_ms=(time.perf_counter()-infer_start)*1000
+  control=json.loads(request.read_text())
+  timings=dict(preprocessing_ms=0.,inference_ms=0.,graph_capture_ms=0.)
+  def predict():
+   global graph
+   pre_start=time.perf_counter()
+   batch={k:torch.from_numpy(np.stack([o[k] for o in pair])).permute(0,3,1,2)[None].float().cuda()/255 for k in CAMERAS}
+   batch["state"]=torch.from_numpy(encode_state(np.stack([o["state"] for o in pair]),contract["state_representation"]))[None].float().cuda()
+   torch.cuda.synchronize()
+   timings["preprocessing_ms"]=(time.perf_counter()-pre_start)*1000
+   if graph is None:
+    graph=GraphPolicy(model,batch);timings["graph_capture_ms"]=graph.capture_s*1000
+   infer_start=time.perf_counter()
+   actions=graph.predict_action(batch)["action"][0].cpu().numpy().copy()
+   timings["inference_ms"]=(time.perf_counter()-infer_start)*1000
+   if actions.shape!=(action_steps,7) or not np.isfinite(actions).all():raise ValueError("Invalid action chunk")
+   return actions
+  action,inferred,plan_start,chunk_offset=chunk.take(n,control.get("action_source","policy"),predict)
   if action.shape!=(7,) or not np.isfinite(action).all():raise ValueError("Invalid action")
   executed=np.clip(action,-1,1)
   write(f"action_{n:03d}.json",dict(index=n,proposed=action.tolist(),executed=executed.tolist(),network_updates=0,
-   sampling_mode="seeded_ddim_eta0",seed=seed,history_frames=len(history),action_horizon=16,executed_chunk=1,
-   preprocessing_ms=preprocess_ms,inference_ms=inference_ms,graph_capture_ms=capture_ms,
+   sampling_mode="seeded_ddim_eta0",seed=seed,history_frames=len(history),action_horizon=model.horizon,executed_chunk=action_steps,
+   inference_performed=inferred,plan_start_index=plan_start,chunk_offset=chunk_offset,
+   **timings,
    request_compute_ms=(time.perf_counter()-request_start)*1000))
   n+=1
  stop=json.loads((OUT/"policy_stop.json").read_text())

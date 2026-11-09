@@ -1,0 +1,16 @@
+{
+  "old": {
+    "windows": 1334,
+    "distinct_observation_rows": 1335,
+    "active_rgb_bytes": 787415040,
+    "batch_size": 8,
+    "data": "/mnt/data2/wjy_SERL/Embodied_Safety/outputs/datasets/task1/diffusion_sequences_v001"
+  },
+  "current": {
+    "windows": 124592,
+    "distinct_observation_rows": 124682,
+    "active_rgb_bytes": 73540435968,
+    "batch_size": 4,
+    "data": "/mnt/data2/wjy_SERL/Embodied_Safety/outputs/datasets/task1/diffusion_success100_v001"
+  }
+}

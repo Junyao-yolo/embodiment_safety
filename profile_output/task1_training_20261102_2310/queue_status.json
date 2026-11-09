@@ -1,0 +1,6 @@
+{
+  "phase": "stopped",
+  "reason": "User selected success100_throughput_v001 to finish batch16 optimization and resume from step500",
+  "updated_at": 1793633702.8322587,
+  "replacement": "/mnt/data2/wjy_SERL/Embodied_Safety/outputs/runs/task1/diffusion_policy/success100_throughput_v001"
+}

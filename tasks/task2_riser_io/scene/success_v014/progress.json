@@ -1,0 +1,10 @@
+{
+  "status": "SUPERSEDED_BY_DP_BC_PILOT",
+  "target_successes": 100,
+  "completed_successes": 2,
+  "current_seed": 6,
+  "retention": "accepted complete episodes only",
+  "current_phase": "thread_turn",
+  "simulation_time_s": 97.0,
+  "next_progress": "/mnt/data2/wjy_SERL/Embodied_Safety/tasks/task2_riser_io/dp_bc/progress.json"
+}

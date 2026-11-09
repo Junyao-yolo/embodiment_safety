@@ -1,0 +1,15 @@
+{
+  "actual_formal_process_alive": false,
+  "last_launch_module": "algos.diffusion_policy.train",
+  "last_batch_size": 4,
+  "last_budget": 100000,
+  "last_data": "/mnt/data2/wjy_SERL/Embodied_Safety/outputs/datasets/task1/diffusion_success100_v001",
+  "cache_enabled": false,
+  "last_launch_cuda_visible_devices": "0",
+  "historical_environment_recoverable": false,
+  "on_disk_experiment_batch_size": 16,
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "raw_storage": "/dev/sda3 ST8000NM017B mechanical disk",
+  "raw_image_bytes": 82542920064,
+  "queue_policy": "Wait for Task2; never pause other tasks; no formal resume"
+}

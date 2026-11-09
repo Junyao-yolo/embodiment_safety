@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "task": "task1_dimm_insert",
+  "algorithm": "diffusion_policy",
+  "bc_only": true,
+  "data": "outputs/datasets/task1/diffusion_success100_v001",
+  "source": "outputs/datasets/task1/smooth_success100_v001",
+  "output": "outputs/runs/task1/diffusion_policy/success100_bc_v001",
+  "scope": "all",
+  "state_representation": "rotation6d33_v002",
+  "prediction_type": "sample",
+  "action_range_eps": 1e-08,
+  "steps": 100000,
+  "batch_size": 16,
+  "eval_every": 5000,
+  "seed": 42,
+  "split": {
+    "unit": "episode",
+    "train": 90,
+    "validation": 10,
+    "seed": 42
+  },
+  "learning_rate": 0.0001,
+  "weight_decay": 1e-06,
+  "gradient_clip_norm": 1.0,
+  "ema_max_decay": 0.9999,
+  "initialization": "from_scratch",
+  "horizon": 16,
+  "n_obs_steps": 2,
+  "n_action_steps": 1,
+  "num_inference_steps": 16,
+  "control_hz": 10
+}

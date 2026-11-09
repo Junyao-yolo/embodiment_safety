@@ -1,0 +1,940 @@
+#usda 1.0
+(
+    subLayers = [
+        @riser_io_success_v014.usda@
+    ]
+)
+
+over "wire1"
+{
+    over "Segment_00" (
+        prepend apiSchemas = ["PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.002
+
+        def Capsule "SecondCapsule" (
+            apiSchemas = ["MaterialBindingAPI", "PhysxRigidBodyAPI", "PhysxContactReportAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxForceAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            uniform token axis = "X"
+            double height = 0.019166666666666665
+            rel material:binding = </World/LayoutMaterials/wire>
+            rel material:binding:physics = </Task2WireGuides/Materials/PrintedContact>
+            vector3f physics:angularVelocity = (0, 0, 0)
+            uniform token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 1
+            rel physics:filteredPairs = [
+                </wire1/Segment_00>,
+                </wire1/Segment_02>,
+            ]
+            bool physics:kinematicEnabled = 0
+            float physics:mass = 0.001
+            bool physics:rigidBodyEnabled = 1
+            vector3f physics:velocity = (0, 0, 0)
+            custom float physxCollision:contactOffset = 0.00015
+            custom float physxCollision:restOffset = 0
+            custom float physxContactReport:threshold = 0
+            custom float physxRigidBody:angularDamping = 0.05
+            custom bool physxRigidBody:kinematicEnabled = 0
+            custom float physxRigidBody:linearDamping = 0.05
+            custom float physxRigidBody:maxAngularVelocity = 2
+            custom float physxRigidBody:maxDepenetrationVelocity = 0.2
+            custom float physxRigidBody:maxLinearVelocity = 0.35
+            custom float physxRigidBody:sleepThreshold = 0
+            int physxRigidBody:solverPositionIterationCount = 256
+            int physxRigidBody:solverVelocityIterationCount = 16
+            color3f[] primvars:displayColor = [(0.16, 0.16, 0.16)]
+            double radius = 0.0035
+            quatf xformOp:orient = (0.99391925, -0.08285877, -0.062418304, 0.03691791)
+            quatd xformOp:orient:layout = (-0.7071067811865475, 0, 0, 0.7071067811865475)
+            quatd xformOp:orient:reset = (-0.4471966542474727, 5.230106957548278e-15, 2.6149296518926265e-15, 0.8944356614256088)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:layout = (1, 1, 1)
+            double3 xformOp:scale:reset = (1, 1, 1)
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0.019166666666666665, 0, 0, 1) )
+            double3 xformOp:translate = (29.720993041992188, 0.3832860291004181, -0.0010994554031640291)
+            double3 xformOp:translate:layout = (-0.045275535209060774, 0.2767060607367443, 0.7605654585652772)
+            double3 xformOp:translate:reset = (-0.05398925808179779, 0.2872778488049921, 0.775)
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+
+    over "Segment_01" (
+        active = false
+    )
+    {
+    }
+
+    over "Segment_02" (
+        prepend apiSchemas = ["PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.002
+
+        def Capsule "SecondCapsule" (
+            apiSchemas = ["MaterialBindingAPI", "PhysxRigidBodyAPI", "PhysxContactReportAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxForceAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            uniform token axis = "X"
+            double height = 0.0191629846047419
+            rel material:binding = </World/LayoutMaterials/wire>
+            rel material:binding:physics = </Task2WireGuides/Materials/PrintedContact>
+            vector3f physics:angularVelocity = (0, 0, 0)
+            uniform token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 1
+            rel physics:filteredPairs = [
+                </wire1/Segment_02>,
+                </wire1/Segment_04>,
+            ]
+            bool physics:kinematicEnabled = 0
+            float physics:mass = 0.001
+            bool physics:rigidBodyEnabled = 1
+            vector3f physics:velocity = (0, 0, 0)
+            custom float physxCollision:contactOffset = 0.00015
+            custom float physxCollision:restOffset = 0
+            custom float physxContactReport:threshold = 0
+            custom float physxRigidBody:angularDamping = 0.05
+            custom bool physxRigidBody:kinematicEnabled = 0
+            custom float physxRigidBody:linearDamping = 0.05
+            custom float physxRigidBody:maxAngularVelocity = 2
+            custom float physxRigidBody:maxDepenetrationVelocity = 0.2
+            custom float physxRigidBody:maxLinearVelocity = 0.35
+            custom float physxRigidBody:sleepThreshold = 0
+            int physxRigidBody:solverPositionIterationCount = 256
+            int physxRigidBody:solverVelocityIterationCount = 16
+            color3f[] primvars:displayColor = [(0.16, 0.16, 0.16)]
+            double radius = 0.0035
+            quatf xformOp:orient = (0.97064453, -0.18347652, -0.1173762, 0.1020216)
+            quatd xformOp:orient:layout = (-0.7070853585886192, -0.005504150216324952, -0.005504150216324952, 0.7070853585886192)
+            quatd xformOp:orient:reset = (-0.14944995705367842, -2.8669375089912422e-15, -4.33330294135573e-16, 0.9887692907532342)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:layout = (1, 1, 1)
+            double3 xformOp:scale:reset = (1, 1, 1)
+            matrix4d xformOp:transform = ( (0.9998788173215845, 3.3303999942759443e-16, -0.015567616117743016, 0), (-3.3306690738754696e-16, 1, 8.673617379884035e-19, 0), (0.015567616117743016, 4.324066908477201e-18, 0.9998788173215846, 0), (0.019163664524803864, 0, -0.00014916099399842064, 1) )
+            double3 xformOp:translate = (67.25642395019531, 4.243418216705322, 4.2681427001953125)
+            double3 xformOp:translate:layout = (-0.045275535209060774, 0.23837572954527378, 0.7604162975712788)
+            double3 xformOp:translate:reset = (-0.08530506194986379, 0.2672078310289614, 0.7749999999999999)
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+
+    over "Segment_03" (
+        active = false
+    )
+    {
+    }
+
+    over "Segment_04" (
+        prepend apiSchemas = ["PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.002
+
+        def Capsule "SecondCapsule" (
+            apiSchemas = ["MaterialBindingAPI", "PhysxRigidBodyAPI", "PhysxContactReportAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxForceAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            uniform token axis = "X"
+            double height = 0.01905345963804738
+            rel material:binding = </World/LayoutMaterials/wire>
+            rel material:binding:physics = </Task2WireGuides/Materials/PrintedContact>
+            vector3f physics:angularVelocity = (0, 0, 0)
+            uniform token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 1
+            rel physics:filteredPairs = [
+                </wire1/Segment_04>,
+                </wire1/Segment_06>,
+            ]
+            bool physics:kinematicEnabled = 0
+            float physics:mass = 0.001
+            bool physics:rigidBodyEnabled = 1
+            vector3f physics:velocity = (0, 0, 0)
+            custom float physxCollision:contactOffset = 0.00015
+            custom float physxCollision:restOffset = 0
+            custom float physxContactReport:threshold = 0
+            custom float physxRigidBody:angularDamping = 0.05
+            custom bool physxRigidBody:kinematicEnabled = 0
+            custom float physxRigidBody:linearDamping = 0.05
+            custom float physxRigidBody:maxAngularVelocity = 2
+            custom float physxRigidBody:maxDepenetrationVelocity = 0.2
+            custom float physxRigidBody:maxLinearVelocity = 0.35
+            custom float physxRigidBody:sleepThreshold = 0
+            int physxRigidBody:solverPositionIterationCount = 256
+            int physxRigidBody:solverVelocityIterationCount = 16
+            color3f[] primvars:displayColor = [(0.16, 0.16, 0.16)]
+            double radius = 0.0035
+            quatf xformOp:orient = (0.89478654, -0.29686496, 0.07089659, -0.32588634)
+            quatd xformOp:orient:layout = (-0.5109790600312427, -0.05713784288537092, -0.03406735454000223, 0.8570152171779917)
+            quatd xformOp:orient:reset = (-0.05383388298893632, 2.8923349823231777e-15, 1.559317388171598e-16, 0.998549905133606)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:layout = (1, 1, 1)
+            double3 xformOp:scale:reset = (1, 1, 1)
+            matrix4d xformOp:transform = ( (0.9315068389209166, -0.36134531304215356, -0.04152798798436008, 0), (0.36281185339844285, 0.9311751992658022, 0.035781382112494195, 0), (0.02574039776592417, -0.04839744843234486, 0.9984964290913065, 0), (0.018408576296916113, -0.0034424391687231243, -0.0003956259214548119, 1) )
+            double3 xformOp:translate = (102.87902069091797, 1.7438353300094604, 1.9024344682693481)
+            double3 xformOp:translate:layout = (-0.05208095268807349, 0.2016538214053621, 0.7571309255795795)
+            double3 xformOp:translate:reset = (-0.12284008801513599, 0.25998891188555573, 0.7749999999999999)
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+
+    over "Segment_05" (
+        active = false
+    )
+    {
+    }
+
+    over "Segment_06" (
+        prepend apiSchemas = ["PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.002
+
+        def Capsule "SecondCapsule" (
+            apiSchemas = ["MaterialBindingAPI", "PhysxRigidBodyAPI", "PhysxContactReportAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxForceAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            uniform token axis = "X"
+            double height = 0.019044677527214844
+            rel material:binding = </World/LayoutMaterials/wire>
+            rel material:binding:physics = </Task2WireGuides/Materials/PrintedContact>
+            vector3f physics:angularVelocity = (0, 0, 0)
+            uniform token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 1
+            rel physics:filteredPairs = [
+                </wire1/Segment_06>,
+                </wire1/Segment_08>,
+            ]
+            bool physics:kinematicEnabled = 0
+            float physics:mass = 0.001
+            bool physics:rigidBodyEnabled = 1
+            vector3f physics:velocity = (0, 0, 0)
+            custom float physxCollision:contactOffset = 0.00015
+            custom float physxCollision:restOffset = 0
+            custom float physxContactReport:threshold = 0
+            custom float physxRigidBody:angularDamping = 0.05
+            custom bool physxRigidBody:kinematicEnabled = 0
+            custom float physxRigidBody:linearDamping = 0.05
+            custom float physxRigidBody:maxAngularVelocity = 2
+            custom float physxRigidBody:maxDepenetrationVelocity = 0.2
+            custom float physxRigidBody:maxLinearVelocity = 0.35
+            custom float physxRigidBody:sleepThreshold = 0
+            int physxRigidBody:solverPositionIterationCount = 256
+            int physxRigidBody:solverVelocityIterationCount = 16
+            color3f[] primvars:displayColor = [(0.16, 0.16, 0.16)]
+            double radius = 0.0035
+            quatf xformOp:orient = (0.9880186, -0.10277405, 0.11452265, -0.011888494)
+            quatd xformOp:orient:layout = (-0.1555948913498715, -0.010263055499682441, -0.0016166566798158236, 0.98776631138079)
+            quatd xformOp:orient:reset = (-0.028760781250614587, -2.8950386351663262e-15, -8.329803136393412e-17, 0.9995863231666658)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:layout = (1, 1, 1)
+            double3 xformOp:scale:reset = (1, 1, 1)
+            matrix4d xformOp:transform = ( (0.9248194794590129, -0.3728802599137987, 0.0752943701731946, 0), (0.37095988485927034, 0.9278471093787725, 0.03858115398290242, 0), (-0.08424781444261284, -0.007749411853396287, 0.9964146989971442, 0), (0.01833090281277669, -0.0035506921531612, 0.0007169784997815842, 1) )
+            double3 xformOp:translate = (136.72019958496094, -13.751899719238281, 5.635294437408447)
+            double3 xformOp:translate:layout = (-0.08018594344701652, 0.17829192752665313, 0.7536978559926981)
+            double3 xformOp:translate:reset = (-0.161051708369029, 0.25704022516119135, 0.7750000000000001)
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+
+    over "Segment_07" (
+        active = false
+    )
+    {
+    }
+
+    over "Segment_08" (
+        prepend apiSchemas = ["PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.002
+
+        def Capsule "SecondCapsule" (
+            apiSchemas = ["MaterialBindingAPI", "PhysxRigidBodyAPI", "PhysxContactReportAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxForceAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            uniform token axis = "X"
+            double height = 0.019166666666666513
+            rel material:binding = </World/LayoutMaterials/wire>
+            rel material:binding:physics = </Task2WireGuides/Materials/PrintedContact>
+            vector3f physics:angularVelocity = (0, 0, 0)
+            uniform token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 1
+            rel physics:filteredPairs = [
+                </wire1/Segment_08>,
+                </wire1/Segment_10>,
+            ]
+            bool physics:kinematicEnabled = 0
+            float physics:mass = 0.001
+            bool physics:rigidBodyEnabled = 1
+            vector3f physics:velocity = (0, 0, 0)
+            custom float physxCollision:contactOffset = 0.00015
+            custom float physxCollision:restOffset = 0
+            custom float physxContactReport:threshold = 0
+            custom float physxRigidBody:angularDamping = 0.05
+            custom bool physxRigidBody:kinematicEnabled = 0
+            custom float physxRigidBody:linearDamping = 0.05
+            custom float physxRigidBody:maxAngularVelocity = 2
+            custom float physxRigidBody:maxDepenetrationVelocity = 0.2
+            custom float physxRigidBody:maxLinearVelocity = 0.35
+            custom float physxRigidBody:sleepThreshold = 0
+            int physxRigidBody:solverPositionIterationCount = 256
+            int physxRigidBody:solverVelocityIterationCount = 16
+            color3f[] primvars:displayColor = [(0.16, 0.16, 0.16)]
+            double radius = 0.0035
+            quatf xformOp:orient = (0.68899435, 0.7138218, -0.0509777, -0.11465809)
+            quatd xformOp:orient:layout = (0, 0, 0, 1)
+            quatd xformOp:orient:reset = (-0.04421492174163819, 0, 0, 0.9990220421469093)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:layout = (1, 1, 1)
+            double3 xformOp:scale:reset = (1, 1, 1)
+            matrix4d xformOp:transform = ( (0.9998182039841275, -0.01906722271208128, 0, 0), (0.01906722271208128, 0.9998182039841275, 0, 0), (0, 0, 1, 0), (0.019159297349236284, -0.00018272755099080218, 0, 1) )
+            double3 xformOp:translate = (174.7798309326172, -15.513253211975098, 7.01889705657959)
+            double3 xformOp:translate:layout = (-0.11798047237324372, 0.175, 0.7535)
+            double3 xformOp:translate:reset = (-0.19929317865173346, 0.2544396182925591, 0.775)
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+
+    over "Segment_09" (
+        active = false
+    )
+    {
+    }
+
+    over "Segment_10" (
+        prepend apiSchemas = ["PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.002
+
+        def Capsule "SecondCapsule" (
+            apiSchemas = ["MaterialBindingAPI", "PhysxRigidBodyAPI", "PhysxContactReportAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxForceAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            uniform token axis = "X"
+            double height = 0.019166666666666693
+            rel material:binding = </World/LayoutMaterials/wire>
+            rel material:binding:physics = </Task2WireGuides/Materials/PrintedContact>
+            vector3f physics:angularVelocity = (0, 0, 0)
+            uniform token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 1
+            rel physics:filteredPairs = [
+                </wire1/Segment_10>,
+                </wire1/Segment_12>,
+            ]
+            bool physics:kinematicEnabled = 0
+            float physics:mass = 0.001
+            bool physics:rigidBodyEnabled = 1
+            vector3f physics:velocity = (0, 0, 0)
+            custom float physxCollision:contactOffset = 0.00015
+            custom float physxCollision:restOffset = 0
+            custom float physxContactReport:threshold = 0
+            custom float physxRigidBody:angularDamping = 0.05
+            custom bool physxRigidBody:kinematicEnabled = 0
+            custom float physxRigidBody:linearDamping = 0.05
+            custom float physxRigidBody:maxAngularVelocity = 2
+            custom float physxRigidBody:maxDepenetrationVelocity = 0.2
+            custom float physxRigidBody:maxLinearVelocity = 0.35
+            custom float physxRigidBody:sleepThreshold = 0
+            int physxRigidBody:solverPositionIterationCount = 256
+            int physxRigidBody:solverVelocityIterationCount = 16
+            color3f[] primvars:displayColor = [(0.16, 0.16, 0.16)]
+            double radius = 0.0035
+            quatf xformOp:orient = (-0.30771127, -0.6292284, 0.23404847, 0.67424524)
+            quatd xformOp:orient:layout = (0, 0, 0, 1)
+            quatd xformOp:orient:reset = (-0.11775611929645675, -2.8779732739608248e-15, -3.4127335818045234e-16, 0.99304254509474)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:layout = (1, 1, 1)
+            double3 xformOp:scale:reset = (1, 1, 1)
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0.019166666666666693, 0, 0, 1) )
+            double3 xformOp:translate = (187.67044067382812, -43.36155319213867, -0.4325178861618042)
+            double3 xformOp:translate:layout = (-0.156313805706577, 0.175, 0.7535)
+            double3 xformOp:translate:reset = (-0.23712273944329798, 0.24866170779664581, 0.7749999999999999)
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+
+    over "Segment_11" (
+        active = false
+    )
+    {
+    }
+
+    over "Segment_12" (
+        prepend apiSchemas = ["PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.002
+
+        def Capsule "SecondCapsule" (
+            apiSchemas = ["MaterialBindingAPI", "PhysxRigidBodyAPI", "PhysxContactReportAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxForceAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            uniform token axis = "X"
+            double height = 0.019166666666666526
+            rel material:binding = </World/LayoutMaterials/wire>
+            rel material:binding:physics = </Task2WireGuides/Materials/PrintedContact>
+            vector3f physics:angularVelocity = (0, 0, 0)
+            uniform token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 1
+            rel physics:filteredPairs = [
+                </wire1/Segment_12>,
+                </wire1/Segment_14>,
+            ]
+            bool physics:kinematicEnabled = 0
+            float physics:mass = 0.001
+            bool physics:rigidBodyEnabled = 1
+            vector3f physics:velocity = (0, 0, 0)
+            custom float physxCollision:contactOffset = 0.00015
+            custom float physxCollision:restOffset = 0
+            custom float physxContactReport:threshold = 0
+            custom float physxRigidBody:angularDamping = 0.05
+            custom bool physxRigidBody:kinematicEnabled = 0
+            custom float physxRigidBody:linearDamping = 0.05
+            custom float physxRigidBody:maxAngularVelocity = 2
+            custom float physxRigidBody:maxDepenetrationVelocity = 0.2
+            custom float physxRigidBody:maxLinearVelocity = 0.35
+            custom float physxRigidBody:sleepThreshold = 0
+            int physxRigidBody:solverPositionIterationCount = 256
+            int physxRigidBody:solverVelocityIterationCount = 16
+            color3f[] primvars:displayColor = [(0.16, 0.16, 0.16)]
+            double radius = 0.0035
+            quatf xformOp:orient = (-0.38564262, -0.2867761, 0.49687067, 0.7226055)
+            quatd xformOp:orient:layout = (0, 0, 0, 1)
+            quatd xformOp:orient:reset = (-0.3572529779900898, 2.7245488458418143e-15, 1.0421254879452718e-15, 0.9340076604167722)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:layout = (1, 1, 1)
+            double3 xformOp:scale:reset = (1, 1, 1)
+            matrix4d xformOp:transform = ( (1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0.01916666666666661, 0, 0, 1) )
+            double3 xformOp:translate = (170.8916015625, -70.18085479736328, -17.407920837402344)
+            double3 xformOp:translate:layout = (-0.19464713903991027, 0.175, 0.7535)
+            double3 xformOp:translate:reset = (-0.27105661269013537, 0.23244509077419778, 0.7750000000000001)
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+
+    over "Segment_13" (
+        active = false
+    )
+    {
+    }
+
+    over "Segment_14" (
+        prepend apiSchemas = ["PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.002
+
+        def Capsule "SecondCapsule" (
+            apiSchemas = ["MaterialBindingAPI", "PhysxRigidBodyAPI", "PhysxContactReportAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxForceAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            uniform token axis = "X"
+            double height = 0.01914621724771293
+            rel material:binding = </World/LayoutMaterials/wire>
+            rel material:binding:physics = </Task2WireGuides/Materials/PrintedContact>
+            vector3f physics:angularVelocity = (0, 0, 0)
+            uniform token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 1
+            rel physics:filteredPairs = [
+                </wire1/Segment_14>,
+                </wire1/Segment_16>,
+            ]
+            bool physics:kinematicEnabled = 0
+            float physics:mass = 0.001
+            bool physics:rigidBodyEnabled = 1
+            vector3f physics:velocity = (0, 0, 0)
+            custom float physxCollision:contactOffset = 0.00015
+            custom float physxCollision:restOffset = 0
+            custom float physxContactReport:threshold = 0
+            custom float physxRigidBody:angularDamping = 0.05
+            custom bool physxRigidBody:kinematicEnabled = 0
+            custom float physxRigidBody:linearDamping = 0.05
+            custom float physxRigidBody:maxAngularVelocity = 2
+            custom float physxRigidBody:maxDepenetrationVelocity = 0.2
+            custom float physxRigidBody:maxLinearVelocity = 0.35
+            custom float physxRigidBody:sleepThreshold = 0
+            int physxRigidBody:solverPositionIterationCount = 256
+            int physxRigidBody:solverVelocityIterationCount = 16
+            color3f[] primvars:displayColor = [(0.16, 0.16, 0.16)]
+            double radius = 0.0035
+            quatf xformOp:orient = (-0.16149734, -0.14198273, 0.6114917, 0.76147056)
+            quatd xformOp:orient:layout = (-0.015003372595472927, 0, 0, 0.9998874430708495)
+            quatd xformOp:orient:reset = (-0.7015310365933277, -0.000466989182051502, -0.00045971044034961506, 0.7126386007533595)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:layout = (1, 1, 1)
+            double3 xformOp:scale:reset = (1, 1, 1)
+            matrix4d xformOp:transform = ( (0.9995497976215229, 0.030003367723853633, 0, 0), (-0.030003367723853633, 0.9995497976215229, 0, 0), (0, 0, 1, 0), (0.019152132120917875, 0.0002872254983019573, 0, 1) )
+            double3 xformOp:translate = (140.25315856933594, -91.313720703125, -15.185203552246094)
+            double3 xformOp:translate:layout = (-0.23296593782749464, 0.17471277450169803, 0.7535)
+            double3 xformOp:translate:reset = (-0.2853101084278276, 0.19888398285442063, 0.7749874639484445)
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+
+    over "Segment_15" (
+        active = false
+    )
+    {
+    }
+
+    over "Segment_16" (
+        prepend apiSchemas = ["PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.002
+
+        def Capsule "SecondCapsule" (
+            apiSchemas = ["MaterialBindingAPI", "PhysxRigidBodyAPI", "PhysxContactReportAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxForceAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            uniform token axis = "X"
+            double height = 0.01904947489423151
+            rel material:binding = </World/LayoutMaterials/wire>
+            rel material:binding:physics = </Task2WireGuides/Materials/PrintedContact>
+            vector3f physics:angularVelocity = (0, 0, 0)
+            uniform token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 1
+            rel physics:filteredPairs = [
+                </wire1/Segment_16>,
+                </wire1/Segment_18>,
+            ]
+            bool physics:kinematicEnabled = 0
+            float physics:mass = 0.001
+            bool physics:rigidBodyEnabled = 1
+            vector3f physics:velocity = (0, 0, 0)
+            custom float physxCollision:contactOffset = 0.00015
+            custom float physxCollision:restOffset = 0
+            custom float physxContactReport:threshold = 0
+            custom float physxRigidBody:angularDamping = 0.05
+            custom bool physxRigidBody:kinematicEnabled = 0
+            custom float physxRigidBody:linearDamping = 0.05
+            custom float physxRigidBody:maxAngularVelocity = 2
+            custom float physxRigidBody:maxDepenetrationVelocity = 0.2
+            custom float physxRigidBody:maxLinearVelocity = 0.35
+            custom float physxRigidBody:sleepThreshold = 0
+            int physxRigidBody:solverPositionIterationCount = 256
+            int physxRigidBody:solverVelocityIterationCount = 16
+            color3f[] primvars:displayColor = [(0.16, 0.16, 0.16)]
+            double radius = 0.0035
+            quatf xformOp:orient = (-0.36650172, -0.3286711, 0.58422714, 0.64523673)
+            quatd xformOp:orient:layout = (-0.3554159661136897, 0, 0, 0.9347082384527658)
+            quatd xformOp:orient:reset = (0.7996175013569651, 0.006399813345239395, 0.008523108517373921, -0.6004150652123836)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:layout = (1, 1, 1)
+            double3 xformOp:scale:reset = (1, 1, 1)
+            matrix4d xformOp:transform = ( (0.927427216938192, 0.37400368618808993, 0, 0), (-0.37400368618808993, 0.927427216938192, 0, 0), (0, 0, 1, 0), (0.018358250153687472, 0.0035622869151950842, 0, 1) )
+            double3 xformOp:translate = (116.53849792480469, -119.73038482666016, -17.667797088623047)
+            double3 xformOp:translate:layout = (-0.2675904621195401, 0.16168340741581422, 0.7535)
+            double3 xformOp:translate:reset = (-0.2803023294248487, 0.16114139050430706, 0.7745806552031738)
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+
+    over "Segment_17" (
+        active = false
+    )
+    {
+    }
+
+    over "Segment_18" (
+        prepend apiSchemas = ["PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.002
+
+        def Capsule "SecondCapsule" (
+            apiSchemas = ["MaterialBindingAPI", "PhysxRigidBodyAPI", "PhysxContactReportAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxForceAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            uniform token axis = "X"
+            double height = 0.01908382787168879
+            rel material:binding = </World/LayoutMaterials/wire>
+            rel material:binding:physics = </Task2WireGuides/Materials/PrintedContact>
+            vector3f physics:angularVelocity = (0, 0, 0)
+            uniform token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 1
+            rel physics:filteredPairs = [
+                </wire1/Segment_18>,
+                </wire1/Segment_20>,
+            ]
+            bool physics:kinematicEnabled = 0
+            float physics:mass = 0.001
+            bool physics:rigidBodyEnabled = 1
+            vector3f physics:velocity = (0, 0, 0)
+            custom float physxCollision:contactOffset = 0.00015
+            custom float physxCollision:restOffset = 0
+            custom float physxContactReport:threshold = 0
+            custom float physxRigidBody:angularDamping = 0.05
+            custom bool physxRigidBody:kinematicEnabled = 0
+            custom float physxRigidBody:linearDamping = 0.05
+            custom float physxRigidBody:maxAngularVelocity = 2
+            custom float physxRigidBody:maxDepenetrationVelocity = 0.2
+            custom float physxRigidBody:maxLinearVelocity = 0.35
+            custom float physxRigidBody:sleepThreshold = 0
+            int physxRigidBody:solverPositionIterationCount = 256
+            int physxRigidBody:solverVelocityIterationCount = 16
+            color3f[] primvars:displayColor = [(0.16, 0.16, 0.16)]
+            double radius = 0.0035
+            quatf xformOp:orient = (-0.49585646, -0.5017316, 0.51608187, 0.4858511)
+            quatd xformOp:orient:layout = (-0.6729302265664001, 0.005071475548015725, 0.004613854654309474, 0.7396741868243667)
+            quatd xformOp:orient:reset = (0.8629007486044241, 0.009449101019075621, 0.016144948735635035, -0.50502708162848)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:layout = (1, 1, 1)
+            double3 xformOp:scale:reset = (1, 1, 1)
+            matrix4d xformOp:transform = ( (0.9335633512183623, 0.3581500356341555, 0.013712083619694209, 0), (-0.35818371028929286, 0.9336511284646934, -1.734723475976807e-18, 0), (-0.012802302345129737, -0.00491144498669911, 0.9999059849619896, 0), (0.018432737374024746, 0.003417436816140762, 0.00013083952178016833, 1) )
+            double3 xformOp:translate = (111.40489959716797, -156.76710510253906, -17.47443962097168)
+            double3 xformOp:translate:layout = (-0.28407823932167997, 0.12879344353076488, 0.7536308395217801)
+            double3 xformOp:translate:reset = (-0.2649388409975353, 0.12621087671566367, 0.7734062910600104)
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+
+    over "Segment_19" (
+        active = false
+    )
+    {
+    }
+
+    over "Segment_20" (
+        prepend apiSchemas = ["PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.002
+
+        def Capsule "SecondCapsule" (
+            apiSchemas = ["MaterialBindingAPI", "PhysxRigidBodyAPI", "PhysxContactReportAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxForceAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            uniform token axis = "X"
+            double height = 0.019164850571190526
+            rel material:binding = </World/LayoutMaterials/wire>
+            rel material:binding:physics = </Task2WireGuides/Materials/PrintedContact>
+            vector3f physics:angularVelocity = (0, 0, 0)
+            uniform token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 1
+            rel physics:filteredPairs = [
+                </wire1/Segment_20>,
+                </wire1/Segment_22>,
+            ]
+            bool physics:kinematicEnabled = 0
+            float physics:mass = 0.001
+            bool physics:rigidBodyEnabled = 1
+            vector3f physics:velocity = (0, 0, 0)
+            custom float physxCollision:contactOffset = 0.00015
+            custom float physxCollision:restOffset = 0
+            custom float physxContactReport:threshold = 0
+            custom float physxRigidBody:angularDamping = 0.05
+            custom bool physxRigidBody:kinematicEnabled = 0
+            custom float physxRigidBody:linearDamping = 0.05
+            custom float physxRigidBody:maxAngularVelocity = 2
+            custom float physxRigidBody:maxDepenetrationVelocity = 0.2
+            custom float physxRigidBody:maxLinearVelocity = 0.35
+            custom float physxRigidBody:sleepThreshold = 0
+            int physxRigidBody:solverPositionIterationCount = 256
+            int physxRigidBody:solverVelocityIterationCount = 16
+            color3f[] primvars:displayColor = [(0.16, 0.16, 0.16)]
+            double radius = 0.0035
+            quatf xformOp:orient = (-0.30391097, -0.343776, 0.66633266, 0.5877559)
+            quatd xformOp:orient:layout = (-0.6984980330833163, 0.11000226260735861, 0.11000226260735861, 0.6984980330833163)
+            quatd xformOp:orient:reset = (0.8200345997203011, 0.007546247559800991, 0.010815440859138182, -0.572161983749667)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:layout = (1, 1, 1)
+            double3 xformOp:scale:reset = (1, 1, 1)
+            matrix4d xformOp:transform = ( (0.9934371598256909, 2.1741270015594274e-16, 0.11437923534219155, 0), (-2.17716236487119e-16, 0.9999999999999999, 4.362851070341614e-17, 0), (-0.1143792353421916, -2.521513671647278e-17, 0.9934371598256909, 0), (0.019088373208745346, 0, 0.0010960304768902196, 1) )
+            double3 xformOp:translate = (94.71765899658203, -189.9461212158203, -17.69849395751953)
+            double3 xformOp:translate:layout = (-0.28497783551554884, 0.0914116982594502, 0.7604670659323918)
+            double3 xformOp:translate:reset = (-0.24811705505483356, 0.09188789317631398, 0.7721204566397519)
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+
+    over "Segment_21" (
+        active = false
+    )
+    {
+    }
+
+    over "Segment_22" (
+        prepend apiSchemas = ["PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.002
+
+        def Capsule "SecondCapsule" (
+            apiSchemas = ["MaterialBindingAPI", "PhysxRigidBodyAPI", "PhysxContactReportAPI", "PhysicsCollisionAPI", "PhysxCollisionAPI", "PhysxForceAPI", "PhysicsMeshCollisionAPI"]
+        )
+        {
+            uniform token axis = "X"
+            double height = 0.019120612030902925
+            rel material:binding = </World/LayoutMaterials/wire>
+            rel material:binding:physics = </Task2WireGuides/Materials/PrintedContact>
+            vector3f physics:angularVelocity = (0, 0, 0)
+            uniform token physics:approximation = "convexHull"
+            bool physics:collisionEnabled = 1
+            rel physics:filteredPairs = [
+                </wire1/Segment_22>,
+                </wire1/_0347300_ring_terminal>,
+            ]
+            bool physics:kinematicEnabled = 0
+            float physics:mass = 0.001
+            bool physics:rigidBodyEnabled = 1
+            vector3f physics:velocity = (0, 0, 0)
+            custom float physxCollision:contactOffset = 0.00015
+            custom float physxCollision:restOffset = 0
+            custom float physxContactReport:threshold = 0
+            custom float physxRigidBody:angularDamping = 0.05
+            custom bool physxRigidBody:kinematicEnabled = 0
+            custom float physxRigidBody:linearDamping = 0.05
+            custom float physxRigidBody:maxAngularVelocity = 2
+            custom float physxRigidBody:maxDepenetrationVelocity = 0.2
+            custom float physxRigidBody:maxLinearVelocity = 0.35
+            custom float physxRigidBody:sleepThreshold = 0
+            int physxRigidBody:solverPositionIterationCount = 256
+            int physxRigidBody:solverVelocityIterationCount = 16
+            color3f[] primvars:displayColor = [(0.16, 0.16, 0.16)]
+            double radius = 0.0035
+            quatf xformOp:orient = (-0.31918514, -0.3396263, 0.68884706, 0.5552158)
+            quatd xformOp:orient:layout = (-0.7055241388240712, 0.04728307875501396, 0.04728307875501396, 0.7055241388240712)
+            quatd xformOp:orient:reset = (0.7271686871600842, 0.0015099635812101217, 0.001599518941347564, -0.6864552876648407)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:layout = (1, 1, 1)
+            double3 xformOp:scale:reset = (1, 1, 1)
+            matrix4d xformOp:transform = ( (0.9873403690864554, 1.2244282713828753e-15, -0.15861587427562931, 0), (-1.1972232318650464e-15, 1, 2.5987254326609093e-16, 0), (0.15861587427562934, -2.6002165691786427e-17, 0.9873403690864555, 0), (0.019019652132079845, 5.551115123125783e-17, -0.0015164162969834027, 1) )
+            double3 xformOp:translate = (72.91475677490234, -221.6573486328125, -17.10709571838379)
+            double3 xformOp:translate:layout = (-0.28497783551554884, 0.05447481051095151, 0.7702242974913247)
+            double3 xformOp:translate:reset = (-0.24055121297386345, 0.05456149014684075, 0.771542133969431)
+            uniform token[] xformOpOrder = ["xformOp:transform"]
+        }
+    }
+
+    over "Segment_23" (
+        active = false
+    )
+    {
+    }
+
+    over "FixedJoint"
+    {
+        rel physics:body0 = </wire1/Segment_22>
+        point3f physics:localPos0 = (0.028458929, 1.227282e-16, -0.0030328326)
+        quatf physics:localRot0 = (0.99683005, 7.1695946e-17, 0.07956014, 6.073381e-16)
+    }
+
+    over "Bend_00" (
+        active = false
+    )
+    {
+    }
+
+    over "Bend_01"
+    {
+        float drive:rotX:physics:damping = 0.00001
+        float drive:rotX:physics:stiffness = 0.00005
+        float drive:rotY:physics:damping = 0.00001
+        float drive:rotY:physics:stiffness = 0.00005
+        float drive:rotZ:physics:damping = 0.00001
+        float drive:rotZ:physics:stiffness = 0.00005
+        rel physics:body0 = </wire1/Segment_00>
+        point3f physics:localPos0 = (0.02875, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+    }
+
+    over "Bend_02" (
+        active = false
+    )
+    {
+    }
+
+    over "Bend_03"
+    {
+        float drive:rotX:physics:damping = 0.00001
+        float drive:rotX:physics:stiffness = 0.00005
+        float drive:rotY:physics:damping = 0.00001
+        float drive:rotY:physics:stiffness = 0.00005
+        float drive:rotZ:physics:damping = 0.00001
+        float drive:rotZ:physics:stiffness = 0.00005
+        rel physics:body0 = </wire1/Segment_02>
+        point3f physics:localPos0 = (0.028743995, 3.1910202e-18, -0.00029832197)
+        quatf physics:localRot0 = (0.9999697, -8.642025e-19, 0.007784044, 1.6653177e-16)
+    }
+
+    over "Bend_04" (
+        active = false
+    )
+    {
+    }
+
+    over "Bend_05"
+    {
+        float drive:rotX:physics:damping = 0.00001
+        float drive:rotX:physics:stiffness = 0.00005
+        float drive:rotY:physics:damping = 0.00001
+        float drive:rotY:physics:stiffness = 0.00005
+        float drive:rotZ:physics:damping = 0.00001
+        float drive:rotZ:physics:stiffness = 0.00005
+        rel physics:body0 = </wire1/Segment_04>
+        point3f physics:localPos0 = (0.02728279, -0.006884878, -0.00079125183)
+        quatf physics:localRot0 = (0.98249406, 0.02141968, 0.01711674, -0.18426502)
+    }
+
+    over "Bend_06" (
+        active = false
+    )
+    {
+    }
+
+    over "Bend_07"
+    {
+        float drive:rotX:physics:damping = 0.00001
+        float drive:rotX:physics:stiffness = 0.00005
+        float drive:rotY:physics:damping = 0.00001
+        float drive:rotY:physics:stiffness = 0.00005
+        float drive:rotZ:physics:damping = 0.00001
+        float drive:rotZ:physics:stiffness = 0.00005
+        rel physics:body0 = </wire1/Segment_06>
+        point3f physics:localPos0 = (0.027137347, -0.007101384, 0.001433957)
+        quatf physics:localRot0 = (0.98095375, 0.01180753, -0.040659964, -0.18957064)
+    }
+
+    over "Bend_08" (
+        active = false
+    )
+    {
+    }
+
+    over "Bend_09"
+    {
+        float drive:rotX:physics:damping = 0.00001
+        float drive:rotX:physics:stiffness = 0.00005
+        float drive:rotY:physics:damping = 0.00001
+        float drive:rotY:physics:stiffness = 0.00005
+        float drive:rotZ:physics:damping = 0.00001
+        float drive:rotZ:physics:stiffness = 0.00005
+        rel physics:body0 = </wire1/Segment_08>
+        point3f physics:localPos0 = (0.028740888, -0.0003654551, 0)
+        quatf physics:localRot0 = (0.9999545, 0, 0, -0.009534045)
+    }
+
+    over "Bend_10" (
+        active = false
+    )
+    {
+    }
+
+    over "Bend_11"
+    {
+        float drive:rotX:physics:damping = 0.00001
+        float drive:rotX:physics:stiffness = 0.00005
+        float drive:rotY:physics:damping = 0.00001
+        float drive:rotY:physics:stiffness = 0.00005
+        float drive:rotZ:physics:damping = 0.00001
+        float drive:rotZ:physics:stiffness = 0.00005
+        rel physics:body0 = </wire1/Segment_10>
+        point3f physics:localPos0 = (0.02875, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+    }
+
+    over "Bend_12" (
+        active = false
+    )
+    {
+    }
+
+    over "Bend_13"
+    {
+        float drive:rotX:physics:damping = 0.00001
+        float drive:rotX:physics:stiffness = 0.00005
+        float drive:rotY:physics:damping = 0.00001
+        float drive:rotY:physics:stiffness = 0.00005
+        float drive:rotZ:physics:damping = 0.00001
+        float drive:rotZ:physics:stiffness = 0.00005
+        rel physics:body0 = </wire1/Segment_12>
+        point3f physics:localPos0 = (0.02875, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+    }
+
+    over "Bend_14" (
+        active = false
+    )
+    {
+    }
+
+    over "Bend_15"
+    {
+        float drive:rotX:physics:damping = 0.00001
+        float drive:rotX:physics:stiffness = 0.00005
+        float drive:rotY:physics:damping = 0.00001
+        float drive:rotY:physics:stiffness = 0.00005
+        float drive:rotZ:physics:damping = 0.00001
+        float drive:rotZ:physics:stiffness = 0.00005
+        rel physics:body0 = </wire1/Segment_14>
+        point3f physics:localPos0 = (0.02872093, 0.000574451, 0)
+        quatf physics:localRot0 = (0.99988747, 0, 0, 0.015003373)
+    }
+
+    over "Bend_16" (
+        active = false
+    )
+    {
+    }
+
+    over "Bend_17"
+    {
+        float drive:rotX:physics:damping = 0.00001
+        float drive:rotX:physics:stiffness = 0.00005
+        float drive:rotY:physics:damping = 0.00001
+        float drive:rotY:physics:stiffness = 0.00005
+        float drive:rotZ:physics:damping = 0.00001
+        float drive:rotZ:physics:stiffness = 0.00005
+        rel physics:body0 = </wire1/Segment_16>
+        point3f physics:localPos0 = (0.02719175, 0.007124574, 0)
+        quatf physics:localRot0 = (0.98168916, 0, 0, 0.19048987)
+    }
+
+    over "Bend_18" (
+        active = false
+    )
+    {
+    }
+
+    over "Bend_19"
+    {
+        float drive:rotX:physics:damping = 0.00001
+        float drive:rotX:physics:stiffness = 0.00005
+        float drive:rotY:physics:damping = 0.00001
+        float drive:rotY:physics:stiffness = 0.00005
+        float drive:rotZ:physics:damping = 0.00001
+        float drive:rotZ:physics:stiffness = 0.00005
+        rel physics:body0 = </wire1/Segment_18>
+        point3f physics:localPos0 = (0.027340718, 0.0068348735, 0.00026167903)
+        quatf physics:localRot0 = (0.9832498, 0.0012487785, -0.0067415186, 0.18213423)
+    }
+
+    over "Bend_20" (
+        active = false
+    )
+    {
+    }
+
+    over "Bend_21"
+    {
+        float drive:rotX:physics:damping = 0.00001
+        float drive:rotX:physics:stiffness = 0.00005
+        float drive:rotY:physics:damping = 0.00001
+        float drive:rotY:physics:stiffness = 0.00005
+        float drive:rotZ:physics:damping = 0.00001
+        float drive:rotZ:physics:stiffness = 0.00005
+        rel physics:body0 = </wire1/Segment_20>
+        point3f physics:localPos0 = (0.02860791, 2.083341e-18, 0.002192061)
+        quatf physics:localRot0 = (0.99835795, 1.723922e-17, -0.05728368, 1.08961154e-16)
+    }
+
+    over "Bend_22" (
+        active = false
+    )
+    {
+    }
+}
+

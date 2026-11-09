@@ -1,0 +1,37 @@
+{
+  "version": "task1_wrist_latches_v001",
+  "mount": "fixed_panda_hand",
+  "calibration": "latch_press_and_insertion",
+  "wrist_left": {
+    "translate_local": [
+      0.075,
+      -0.075,
+      0.04
+    ],
+    "look_local": [
+      0.03,
+      -0.025,
+      0.13
+    ],
+    "focal_length": 11.0,
+    "horizontal_aperture": 24.0,
+    "role": "blue_latch",
+    "target_prim": "/World/MatchedSocket/Asset/LeftLatch/Geometry"
+  },
+  "wrist_right": {
+    "translate_local": [
+      -0.075,
+      0.075,
+      0.04
+    ],
+    "look_local": [
+      -0.03,
+      0.025,
+      0.13
+    ],
+    "focal_length": 11.0,
+    "horizontal_aperture": 24.0,
+    "role": "yellow_latch",
+    "target_prim": "/World/MatchedSocket/Asset/RightLatch/Geometry"
+  }
+}

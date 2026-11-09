@@ -1,0 +1,48 @@
+name: task1_dimm_insert
+input_variant: current
+crop_shape:
+- 216
+- 216
+shape_meta:
+  action:
+    shape:
+    - 7
+  obs:
+    external:
+      shape:
+      - 3
+      - 256
+      - 256
+      type: rgb
+    wrist_left:
+      shape:
+      - 3
+      - 256
+      - 256
+      type: rgb
+    wrist_right:
+      shape:
+      - 3
+      - 256
+      - 256
+      type: rgb
+    state:
+      shape:
+      - 33
+dataset:
+  _target_: learning.dataset.task1_image_dataset.Task1ImageDataset
+  dataset_path: /mnt/data2/wjy_SERL/Embodied_Safety/outputs/datasets/task1/diffusion_parallel_diverse_new_wrist_v001
+  input_variant: current
+  proprio_path: ${task.dataset.dataset_path}/proprio9.npy
+  horizon: ${horizon}
+  n_obs_steps: ${n_obs_steps}
+env_runner:
+  _target_: learning.env_runner.task1_image_runner.Task1ImageRunner
+  input_variant: current
+  n_test: 3
+  test_start_seed: 2026110401
+  max_steps: 3000
+  wall_seconds: 2700
+  metric_prefix: test
+  safety_mode: warn
+  isaac_python: /mnt/data2/isaacsim-5.0.0/python.sh

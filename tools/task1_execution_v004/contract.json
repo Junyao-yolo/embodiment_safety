@@ -1,0 +1,49 @@
+{
+  "source": "/mnt/data2/wjy_SERL/franka_sim/outputs/datasets/task1_dimm_insert/reports/serl_collection_reproduce_v001/policy_reset_pair_002/cycle_01/episodes/20261030T142631_ca340bad/transitions.jsonl",
+  "original_success_entry": "outputs/runs/task1/diffusion_policy/insertion_diagnosis_v001/recorded_full/pipeline.py",
+  "source_steps": 1349,
+  "physics_hz": 240,
+  "control_dt_s": 0.1,
+  "ik_period_s": 0.05,
+  "position_tolerance_m": 5e-05,
+  "rotation_tolerance_rad": 0.0005,
+  "max_nfev": 400,
+  "safety_mode": "warn",
+  "safety_limits_N": {
+    "left_press": 3,
+    "right_press": 3,
+    "dimm_environment": 5,
+    "finger_left": 5,
+    "finger_right": 5
+  },
+  "windows": {
+    "free_motion": [
+      10,
+      50
+    ],
+    "latch_opening": [
+      300,
+      490
+    ],
+    "grasp_clear": [
+      780,
+      870
+    ],
+    "insertion": [
+      1040,
+      1349
+    ]
+  },
+  "comparison_tolerances": {
+    "ee_position_m": 5e-05,
+    "ee_rotation_rad": 0.0005,
+    "joints_rad": 0.0001,
+    "dimm_position_m": 0.0005,
+    "latch_angle_deg": 0.25
+  },
+  "comparison_basis": "Final IK 0.05mm/0.0005rad and timing are existing execution constraints. Cross-run limits EE 0.05mm/0.0005rad, joints 0.0001rad, DIMM 0.5mm and latch 0.25deg are preregistered engineering comparison limits; no post-test relaxation. Existing force limits and all five stage predicates remain authoritative.",
+  "reset": "Fresh process and original 180+60 update settling; no state teleport",
+  "timing": "Exclusive CPU wall timers; native rendering/physics GPU time explicitly unresolved",
+  "camera_mae_limit_8bit": 0.5,
+  "camera_mae_basis": "Before batched_io tests: unchanged-configuration initial-state repeat maximum 0.2044; conservative 0.5 intensity level ceiling. Do not relax after seeing batched_io outcomes."
+}

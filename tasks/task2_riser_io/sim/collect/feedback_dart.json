@@ -1,0 +1,9 @@
+{
+  "method": "dart",
+  "randomize": true,
+  "noise_mm_s": 2.0,
+  "expert_probability": 1.0,
+  "recovery_distance_m": 0.015,
+  "n_action_steps": 1,
+  "fixed_noise": true
+}

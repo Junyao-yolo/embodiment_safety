@@ -52,4 +52,5 @@ tensorboard/
 # Prefer keeping only published usda at scene root + assets/scripts
 
 # Pinned upstream checkout; reproduce via algos/diffusion_policy/README.md
-/algos/diffusion_policy/vendor/
+/algos/diffusion_policy/vendor
+/third_party/diffusion_policy/

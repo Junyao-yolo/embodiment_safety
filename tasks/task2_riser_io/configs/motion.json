@@ -1,0 +1,92 @@
+{
+  "name": "phase_speed_v004",
+  "default": {
+    "duration_scale": 0.1,
+    "peak_linear_mm_s": 1000.0,
+    "peak_angular_rad_s": 1.2,
+    "peak_linear_acceleration_mm_s2": 2000.0
+  },
+  "phases": {
+    "approach": {
+      "duration_scale": 0.1
+    },
+    "retract": {
+      "duration_scale": 0.1
+    },
+    "screw_approach": {
+      "duration_scale": 0.1
+    },
+    "screw_lift": {
+      "duration_scale": 0.1
+    },
+    "screw_transport": {
+      "duration_scale": 0.1
+    },
+    "screw_retract": {
+      "duration_scale": 0.1
+    },
+    "screw_regrasp_return": {
+      "duration_scale": 0.5,
+      "peak_linear_mm_s": 80.0,
+      "peak_angular_rad_s": 1.85,
+      "settle_s": 0.15,
+      "cruise_rotation": true,
+      "ramp_seconds": 0.4
+    },
+    "thread_turn": {
+      "duration_scale": 0.5,
+      "peak_angular_rad_s": 1.85,
+      "settle_s": 0.25,
+      "cruise_rotation": true,
+      "ramp_seconds": 0.4,
+      "peak_linear_mm_s": 5.0
+    },
+    "screw_regrasp_open": {
+      "grip_duration_scale": 0.7
+    },
+    "screw_regrasp_close": {
+      "grip_duration_scale": 0.67
+    },
+    "descend": {
+      "duration_scale": 0.3,
+      "peak_linear_mm_s": 80.0
+    },
+    "lift": {
+      "duration_scale": 0.3,
+      "peak_linear_mm_s": 150.0
+    },
+    "level": {
+      "duration_scale": 0.3,
+      "peak_linear_mm_s": 100.0
+    },
+    "transport": {
+      "duration_scale": 0.1
+    },
+    "screw_descend": {
+      "duration_scale": 0.3,
+      "peak_linear_mm_s": 80.0
+    },
+    "screw_align": {
+      "duration_scale": 0.3,
+      "peak_linear_mm_s": 50.0
+    },
+    "grasp": {
+      "grip_duration_scale": 0.8
+    },
+    "screw_grasp": {
+      "grip_duration_scale": 0.8
+    },
+    "seat": {
+      "peak_linear_mm_s": 30.0,
+      "duration_scale": 0.3
+    },
+    "screw_ring_entry": {
+      "peak_linear_mm_s": 10.0,
+      "duration_scale": 0.3
+    },
+    "thread_entry": {
+      "peak_linear_mm_s": 10.0,
+      "duration_scale": 0.3
+    }
+  }
+}

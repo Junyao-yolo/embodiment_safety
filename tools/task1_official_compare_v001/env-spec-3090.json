@@ -1,0 +1,37 @@
+{
+  "python": "3.11",
+  "torch_cuda": "12.8",
+  "pip_phases": [
+    [
+      "torch==2.7.0+cu128",
+      "torchvision==0.22.0+cu128"
+    ],
+    [
+      "numpy==1.26.0",
+      "scipy==1.15.3",
+      "diffusers==0.31.0",
+      "hydra-core==1.3.2",
+      "omegaconf==2.3.0",
+      "einops==0.8.2",
+      "zarr==2.18.3",
+      "numcodecs==0.13.1",
+      "dill==0.3.8",
+      "h5py==3.16.0",
+      "opencv-python==4.11.0.86",
+      "gym==0.23.1",
+      "psutil",
+      "termcolor",
+      "tensorboard",
+      "tensorboardX",
+      "imageio",
+      "imageio-ffmpeg",
+      "matplotlib",
+      "six==1.17.0"
+    ]
+  ],
+  "robomimic": "0.2.0 source in tools/tool_hang_benchmark_v001/official_deps",
+  "diffusion_policy_revision": "5ba07ac6661db573af695b419a7947ecb704690f",
+  "precision": "float32",
+  "global_batch_size": 64,
+  "base_environment_mutation": false
+}

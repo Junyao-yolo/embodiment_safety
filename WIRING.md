@@ -1,6 +1,6 @@
 # Task1 wiring
 
-当前文档：[Task1](tasks/task1_dimm_insert/README.md)。
+当前目录图见 [README.md](README.md) 和 [LAYOUT.md](LAYOUT.md)。Task1 说明：[Task1](tasks/task1_dimm_insert/README.md)。下文是 SERL 入口。
 
 `runners.prepare_task1` → 当前示范索引与在线 replay
 `runners.preflight` → 代码、资产依赖及数据哈希检查

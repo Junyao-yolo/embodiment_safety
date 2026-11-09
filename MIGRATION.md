@@ -1,5 +1,7 @@
 # Task1 维护迁移
 
+当前目录图见 [README.md](README.md) 和 [LAYOUT.md](LAYOUT.md)。下文记录当时的迁移事实。
+
 唯一代码维护目录改为 /mnt/data2/wjy_SERL/Embodied_Safety。
 此仓库中不适用的旧 Task1 环境、训练入口、旧场景工作副本与备份已由当前实现替换；
 此前内容仍可从 Git 历史追溯，不另留版本目录。

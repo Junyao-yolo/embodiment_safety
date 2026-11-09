@@ -1,0 +1,51 @@
+name: task2_riser_io
+task_root: /mnt/data2/wjy_SERL/Embodied_Safety/tasks/task2_riser_io
+shape_meta:
+  action:
+    shape:
+    - 48
+  obs:
+    external:
+      shape:
+      - 3
+      - 128
+      - 128
+      type: rgb
+    wrist_left:
+      shape:
+      - 3
+      - 128
+      - 128
+      type: rgb
+    wrist_right:
+      shape:
+      - 3
+      - 128
+      - 128
+      type: rgb
+    state:
+      shape:
+      - 23
+      type: low_dim
+dataset:
+  _target_: learning.dataset.task2_image_dataset.Task2ImageDataset
+  prepared_dir: /mnt/data2/wjy_SERL/Embodied_Safety/outputs/task2_riser_io/data/opposed_v002/prepared
+  horizon: ${horizon}
+  n_obs_steps: ${n_obs_steps}
+  pad_before: ${eval:'${n_obs_steps}-1'}
+  pad_after: ${eval:'${n_action_steps}-1'}
+env_runner:
+  _target_: learning.env_runner.task2_image_runner.Task2ImageRunner
+  scene: ${task.task_root}/scene/riser_io_success_v014.usda
+  runtime: /mnt/data2/wjy_SERL/Embodied_Safety/tasks/task2_riser_io/configs/runtime.json
+  motion: /mnt/data2/wjy_SERL/Embodied_Safety/tasks/task2_riser_io/configs/motion.json
+  thresholds: /mnt/data2/wjy_SERL/Embodied_Safety/tasks/task2_riser_io/configs/safety.json
+  max_seconds: 360
+  fixed_noise: false
+  metric_prefix: test
+  isaac_python: /mnt/data2/isaacsim-5.0.0/python.sh
+  n_test: 3
+  test_start_seed: 980000
+crop_shape:
+- 76
+- 76

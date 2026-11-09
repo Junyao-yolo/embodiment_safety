@@ -1,0 +1,9 @@
+{
+  "parent_pid": 1587745,
+  "benchmark_pid": 1588199,
+  "task2_resumed_pgid": 1571024,
+  "phase": "stopped_by_user_request",
+  "updated_at": 1793633425.3076272,
+  "reason": "Replaced by 200 warmup plus 500 stable updates; no formal resume before report; preserve Task2",
+  "replacement": "profile_output/task1_training_20261102_2310"
+}
