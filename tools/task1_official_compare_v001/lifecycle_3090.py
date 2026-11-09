@@ -97,6 +97,17 @@ print(json.dumps(dict(pid=p.pid)))
     state('returned_checkpoints_verified',remote_preserved=True)
     reports={}
     for variant in ('official','current'):
+        if variant == 'official' and (OUT/'official_eval_launch.json').exists():
+            while True:
+                early=json.loads((OUT/'official_eval_launch.json').read_text())
+                if early['status']=='complete':
+                    reports[variant]=json.loads((OUT/'official_eval20/summary.json').read_text())
+                    break
+                if early['status']=='failed':
+                    raise RuntimeError('Official evaluation failed: '+json.dumps(early))
+                state('waiting_for_official_evaluation',evaluation=early)
+                time.sleep(30)
+            continue
         state('evaluating',variant=variant)
         target=OUT/(variant+'_eval20')
         checkpoint=OUT/'outputs'/variant/'checkpoints/best.pt'

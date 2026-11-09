@@ -1,0 +1,179 @@
+{
+  "time": "2026-11-04T23:00:37.631559",
+  "ik": {
+    "baseline": {
+      "total_s": 20.73380329553038,
+      "mean_nfev": 353.3666666666667,
+      "valid": 120,
+      "max_position_error_m": 2.4302439060326115e-06,
+      "max_rotation_error_rad": 0.00012833478810720013
+    },
+    "candidate": {
+      "total_s": 3.0828502415679395,
+      "mean_nfev": 75.68333333333334,
+      "valid": 120,
+      "max_position_error_m": 4.988363181993838e-06,
+      "max_rotation_error_rad": 0.00019998214395234914
+    }
+  },
+  "jacobian_max_relative_error": 3.414939048735151e-11,
+  "paired_episodes": [
+    {
+      "seed": 2026110721,
+      "old_wall_s": 1516.2916652988642,
+      "new_wall_s": 679.3284808280878,
+      "old_sim_s": 89.3,
+      "new_sim_s": 89.4,
+      "accepted": true,
+      "data_valid": true,
+      "motion_quality": true,
+      "safety_pass": false,
+      "old_ik_recording_s": 485.39437756547704,
+      "new_ik_recording_s": 94.17205717600882,
+      "recording_components": {
+        "kit_native_update": {
+          "seconds": 331.462473991327,
+          "calls": 5365
+        },
+        "contact_report": {
+          "seconds": 99.7273983177729,
+          "calls": 21460
+        },
+        "contact_metrics": {
+          "seconds": 14.811671714298427,
+          "calls": 21460
+        },
+        "physics_callback": {
+          "seconds": 29.7141343196854,
+          "calls": 21460
+        },
+        "camera_update": {
+          "seconds": 4.744750800542533,
+          "calls": 5365
+        },
+        "controller_tick": {
+          "seconds": 94.17205717600882,
+          "calls": 21456
+        },
+        "state_and_image_snapshot": {
+          "seconds": 3.566765184979886,
+          "calls": 895
+        },
+        "physics_log_write": {
+          "seconds": 29.367693461943418,
+          "calls": 21457
+        },
+        "image_encode_write": {
+          "seconds": 29.94447701750323,
+          "calls": 2685
+        },
+        "expert_action": {
+          "seconds": 0.8274957672692835,
+          "calls": 894
+        },
+        "transition_write": {
+          "seconds": 1.5483119408600032,
+          "calls": 894
+        },
+        "finish_and_validation": {
+          "seconds": 5.226274187676609,
+          "calls": 1
+        }
+      },
+      "timing": {
+        "reset_and_setup_s": 32.88084882218391,
+        "recording_wall_s": 645.3954051956534,
+        "finalize_s": 1.0318033420480788,
+        "worker": 0,
+        "index": 1
+      }
+    },
+    {
+      "seed": 2026110722,
+      "old_wall_s": 1520.2857828480192,
+      "new_wall_s": 660.0369357913733,
+      "old_sim_s": 91.1,
+      "new_sim_s": 87.6,
+      "accepted": true,
+      "data_valid": true,
+      "motion_quality": true,
+      "safety_pass": false,
+      "old_ik_recording_s": 449.94925140216947,
+      "new_ik_recording_s": 82.47848629578948,
+      "recording_components": {
+        "kit_native_update": {
+          "seconds": 317.6455175578594,
+          "calls": 5257
+        },
+        "contact_report": {
+          "seconds": 95.449722266756,
+          "calls": 21028
+        },
+        "contact_metrics": {
+          "seconds": 16.179646669421345,
+          "calls": 21028
+        },
+        "physics_callback": {
+          "seconds": 28.42112048296258,
+          "calls": 21028
+        },
+        "camera_update": {
+          "seconds": 4.509084126446396,
+          "calls": 5257
+        },
+        "controller_tick": {
+          "seconds": 82.47848629578948,
+          "calls": 21024
+        },
+        "state_and_image_snapshot": {
+          "seconds": 3.429205593187362,
+          "calls": 877
+        },
+        "physics_log_write": {
+          "seconds": 27.78012514906004,
+          "calls": 21025
+        },
+        "image_encode_write": {
+          "seconds": 30.112997216638178,
+          "calls": 2631
+        },
+        "expert_action": {
+          "seconds": 0.8164515579119325,
+          "calls": 876
+        },
+        "transition_write": {
+          "seconds": 1.4687717063352466,
+          "calls": 876
+        },
+        "finish_and_validation": {
+          "seconds": 4.909227028023452,
+          "calls": 1
+        }
+      },
+      "timing": {
+        "reset_and_setup_s": 45.51407170994207,
+        "recording_wall_s": 613.5688906181604,
+        "finalize_s": 0.9311357610858977,
+        "worker": 1,
+        "index": 2
+      }
+    }
+  ],
+  "collections": {
+    "v005": {
+      "accepted": 13,
+      "safety_pass": 0
+    },
+    "v006": {
+      "accepted": 33,
+      "safety_pass": 0
+    }
+  },
+  "resume": {
+    "status": "running",
+    "pid": 1998733,
+    "accepted_v006": 33,
+    "combined_accepted": 46,
+    "updated_at": 1793804379.4324539
+  }
+}

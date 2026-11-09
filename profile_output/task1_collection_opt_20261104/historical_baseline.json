@@ -1,0 +1,318 @@
+[
+  {
+    "attempt": 21,
+    "seed": 2026110721,
+    "sim_s": 89.3,
+    "wall_s": 1516.2916652988642,
+    "timing": {
+      "reset_and_setup_s": 74.62407739786431,
+      "recording_wall_s": 1441.035184442997,
+      "finalize_s": 0.6319723259657621,
+      "worker": 1,
+      "index": 21
+    },
+    "recording_start_sim_s": 6.829167022835463,
+    "recording_end_sim_s": 96.12916702283546,
+    "ik_recording_s": 485.39437756547704,
+    "ik_all_s": 496.3928991612047,
+    "motion_quality": {
+      "accepted": true,
+      "phases": {
+        "ALIGN": {
+          "samples": 25,
+          "velocity_jitter_rms_m_s": 0.0004592274792056966,
+          "angular_jitter_rms_rad_s": 0.00047521330144880813,
+          "accepted": true
+        },
+        "FINAL_HOLD": {
+          "samples": 19,
+          "velocity_jitter_rms_m_s": 0.00015851148026912144,
+          "angular_jitter_rms_rad_s": 0.00011937366498332815,
+          "accepted": true
+        },
+        "FREE_HOLD": {
+          "samples": 10,
+          "velocity_jitter_rms_m_s": 2.0955377708458588e-07,
+          "angular_jitter_rms_rad_s": 9.098104673057482e-07,
+          "accepted": true
+        },
+        "GRASP_ABOVE": {
+          "samples": 76,
+          "velocity_jitter_rms_m_s": 0.0034448768074219044,
+          "angular_jitter_rms_rad_s": 0.011031629546979008,
+          "path_to_chord_ratio": 1.2243614570828494,
+          "path_to_plan_ratio": 1.0444497600765228,
+          "accepted": true
+        },
+        "GRASP_LOWER": {
+          "samples": 54,
+          "velocity_jitter_rms_m_s": 0.0006611547061565335,
+          "angular_jitter_rms_rad_s": 0.00013073903383195928,
+          "accepted": true
+        },
+        "GRIP": {
+          "samples": 55,
+          "velocity_jitter_rms_m_s": 6.131530195330195e-05,
+          "angular_jitter_rms_rad_s": 0.00010340808284524897,
+          "accepted": true
+        },
+        "INSERT": {
+          "samples": 56,
+          "velocity_jitter_rms_m_s": 0.001013259779907016,
+          "angular_jitter_rms_rad_s": 0.00024571866201531336,
+          "accepted": true
+        },
+        "LEFT_ABOVE": {
+          "samples": 49,
+          "velocity_jitter_rms_m_s": 0.0035276331724163083,
+          "angular_jitter_rms_rad_s": 0.0011682933180870352,
+          "path_to_chord_ratio": 2.761578463163152,
+          "path_to_plan_ratio": 0.9525643976820248,
+          "accepted": true
+        },
+        "LEFT_APPROACH": {
+          "samples": 45,
+          "velocity_jitter_rms_m_s": 0.0005630592766403746,
+          "angular_jitter_rms_rad_s": 6.186849115364175e-05,
+          "accepted": true
+        },
+        "LEFT_PRESS": {
+          "samples": 78,
+          "velocity_jitter_rms_m_s": 5.8638316554746496e-05,
+          "angular_jitter_rms_rad_s": 7.28131733647745e-05,
+          "accepted": true
+        },
+        "LEFT_RETRACT": {
+          "samples": 21,
+          "velocity_jitter_rms_m_s": 0.0022676957280337064,
+          "angular_jitter_rms_rad_s": 0.00018170206641634243,
+          "accepted": true
+        },
+        "LIFT": {
+          "samples": 58,
+          "velocity_jitter_rms_m_s": 0.0009638256585077988,
+          "angular_jitter_rms_rad_s": 6.748156927458847e-05,
+          "accepted": true
+        },
+        "RELEASE": {
+          "samples": 24,
+          "velocity_jitter_rms_m_s": 3.757866149430282e-05,
+          "angular_jitter_rms_rad_s": 9.908507339602537e-05,
+          "accepted": true
+        },
+        "RETRACT": {
+          "samples": 20,
+          "velocity_jitter_rms_m_s": 0.0007299882102740229,
+          "angular_jitter_rms_rad_s": 5.1450673760405076e-05,
+          "accepted": true
+        },
+        "RIGHT_ABOVE": {
+          "samples": 79,
+          "velocity_jitter_rms_m_s": 0.0011001221285908776,
+          "angular_jitter_rms_rad_s": 0.0011578792171075786,
+          "path_to_chord_ratio": 1.126288927398476,
+          "path_to_plan_ratio": 0.9572470321116896,
+          "accepted": true
+        },
+        "RIGHT_APPROACH": {
+          "samples": 44,
+          "velocity_jitter_rms_m_s": 0.0005094368199279467,
+          "angular_jitter_rms_rad_s": 4.268703530862016e-05,
+          "accepted": true
+        },
+        "RIGHT_PRESS": {
+          "samples": 80,
+          "velocity_jitter_rms_m_s": 6.566280006859689e-05,
+          "angular_jitter_rms_rad_s": 9.626652018468046e-05,
+          "accepted": true
+        },
+        "RIGHT_RETRACT": {
+          "samples": 21,
+          "velocity_jitter_rms_m_s": 0.002265326261020434,
+          "angular_jitter_rms_rad_s": 0.00010502333183018406,
+          "accepted": true
+        },
+        "TRANSFER": {
+          "samples": 74,
+          "velocity_jitter_rms_m_s": 0.00044773931539158205,
+          "angular_jitter_rms_rad_s": 0.00010504515783351206,
+          "path_to_chord_ratio": 1.0970094574817044,
+          "path_to_plan_ratio": 1.0367617599769532,
+          "accepted": true
+        }
+      },
+      "thresholds": {
+        "min_reward": 1.39,
+        "velocity_jitter_rms_m_s": 0.01,
+        "angular_jitter_rms_rad_s": 0.05,
+        "path_to_chord_ratio": 2.2
+      }
+    },
+    "safety_pass": false,
+    "force_peaks": {
+      "left_press_N": 1.953692860751619,
+      "right_press_N": 1.9839568805101708,
+      "dimm_environment_N": 4.5237239766079185,
+      "finger_left_N": 4.451326162182626,
+      "finger_right_N": 3.8245657336889147
+    }
+  },
+  {
+    "attempt": 22,
+    "seed": 2026110722,
+    "sim_s": 91.1,
+    "wall_s": 1520.2857828480192,
+    "timing": {
+      "reset_and_setup_s": 85.3996488507837,
+      "recording_wall_s": 1434.2614122140221,
+      "finalize_s": 0.6244940450415015,
+      "worker": 0,
+      "index": 22
+    },
+    "recording_start_sim_s": 7.429167054127902,
+    "recording_end_sim_s": 98.5291670541279,
+    "ik_recording_s": 449.94925140216947,
+    "ik_all_s": 464.1162451207638,
+    "motion_quality": {
+      "accepted": true,
+      "phases": {
+        "ALIGN": {
+          "samples": 39,
+          "velocity_jitter_rms_m_s": 0.00036877608303821614,
+          "angular_jitter_rms_rad_s": 0.0019400608138917144,
+          "accepted": true
+        },
+        "FINAL_HOLD": {
+          "samples": 19,
+          "velocity_jitter_rms_m_s": 0.00016368000681288034,
+          "angular_jitter_rms_rad_s": 0.00011316676945918309,
+          "accepted": true
+        },
+        "FREE_HOLD": {
+          "samples": 10,
+          "velocity_jitter_rms_m_s": 4.147833425061046e-06,
+          "angular_jitter_rms_rad_s": 1.2691637016076713e-05,
+          "accepted": true
+        },
+        "GRASP_ABOVE": {
+          "samples": 57,
+          "velocity_jitter_rms_m_s": 0.0017462733914342457,
+          "angular_jitter_rms_rad_s": 0.008881775988011455,
+          "path_to_chord_ratio": 1.3558164543531814,
+          "path_to_plan_ratio": 1.0814802534847894,
+          "accepted": true
+        },
+        "GRASP_LOWER": {
+          "samples": 27,
+          "velocity_jitter_rms_m_s": 0.0014093326856775789,
+          "angular_jitter_rms_rad_s": 9.879739407911039e-05,
+          "accepted": true
+        },
+        "GRIP": {
+          "samples": 47,
+          "velocity_jitter_rms_m_s": 5.5583369605017225e-05,
+          "angular_jitter_rms_rad_s": 0.0001670948975738129,
+          "accepted": true
+        },
+        "INSERT": {
+          "samples": 153,
+          "velocity_jitter_rms_m_s": 0.000597461527875235,
+          "angular_jitter_rms_rad_s": 0.0002160622902229047,
+          "accepted": true
+        },
+        "LEFT_ABOVE": {
+          "samples": 59,
+          "velocity_jitter_rms_m_s": 0.0014455015547806841,
+          "angular_jitter_rms_rad_s": 0.0010266828492940783,
+          "path_to_chord_ratio": 1.05926894752889,
+          "path_to_plan_ratio": 0.9501691534893785,
+          "accepted": true
+        },
+        "LEFT_APPROACH": {
+          "samples": 28,
+          "velocity_jitter_rms_m_s": 0.0008498725267982284,
+          "angular_jitter_rms_rad_s": 5.4913869417184806e-05,
+          "accepted": true
+        },
+        "LEFT_PRESS": {
+          "samples": 79,
+          "velocity_jitter_rms_m_s": 5.4820835477560324e-05,
+          "angular_jitter_rms_rad_s": 7.654053027723614e-05,
+          "accepted": true
+        },
+        "LEFT_RETRACT": {
+          "samples": 22,
+          "velocity_jitter_rms_m_s": 0.0021569412865433623,
+          "angular_jitter_rms_rad_s": 0.00013686462496383586,
+          "accepted": true
+        },
+        "LIFT": {
+          "samples": 57,
+          "velocity_jitter_rms_m_s": 0.0009179024506986769,
+          "angular_jitter_rms_rad_s": 7.86252805473599e-05,
+          "accepted": true
+        },
+        "RELEASE": {
+          "samples": 44,
+          "velocity_jitter_rms_m_s": 3.57589121316469e-05,
+          "angular_jitter_rms_rad_s": 0.00015072877310915323,
+          "accepted": true
+        },
+        "RETRACT": {
+          "samples": 20,
+          "velocity_jitter_rms_m_s": 0.0007186392037127481,
+          "angular_jitter_rms_rad_s": 0.0006532385272949802,
+          "accepted": true
+        },
+        "RIGHT_ABOVE": {
+          "samples": 39,
+          "velocity_jitter_rms_m_s": 0.005796002013691055,
+          "angular_jitter_rms_rad_s": 0.00217983169279621,
+          "path_to_chord_ratio": 3.3913949406297377,
+          "path_to_plan_ratio": 1.0124902865681693,
+          "accepted": true
+        },
+        "RIGHT_APPROACH": {
+          "samples": 28,
+          "velocity_jitter_rms_m_s": 0.0009611544377813592,
+          "angular_jitter_rms_rad_s": 8.446375644941491e-05,
+          "accepted": true
+        },
+        "RIGHT_PRESS": {
+          "samples": 78,
+          "velocity_jitter_rms_m_s": 5.6696748795010135e-05,
+          "angular_jitter_rms_rad_s": 7.288754783657601e-05,
+          "accepted": true
+        },
+        "RIGHT_RETRACT": {
+          "samples": 22,
+          "velocity_jitter_rms_m_s": 0.0021567005826357813,
+          "angular_jitter_rms_rad_s": 8.833102378765523e-05,
+          "accepted": true
+        },
+        "TRANSFER": {
+          "samples": 78,
+          "velocity_jitter_rms_m_s": 0.00023826153549664114,
+          "angular_jitter_rms_rad_s": 7.712726099999554e-05,
+          "path_to_chord_ratio": 1.0461336606226188,
+          "path_to_plan_ratio": 0.9986002663460926,
+          "accepted": true
+        }
+      },
+      "thresholds": {
+        "min_reward": 1.39,
+        "velocity_jitter_rms_m_s": 0.01,
+        "angular_jitter_rms_rad_s": 0.05,
+        "path_to_chord_ratio": 2.2
+      }
+    },
+    "safety_pass": false,
+    "force_peaks": {
+      "left_press_N": 2.063782359238251,
+      "right_press_N": 2.011341680876877,
+      "dimm_environment_N": 21.3659212995154,
+      "finger_left_N": 20.9699654880401,
+      "finger_right_N": 7.160525590179647
+    }
+  }
+]

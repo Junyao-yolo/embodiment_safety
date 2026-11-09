@@ -47,8 +47,9 @@ try:
  from execution import install
  from tasks.task1_dimm_insert.env.trace import traced_apply_velocity
  from tasks.task1_dimm_insert.env.transition import labels,validate_action,completed_partial
- prerequisite=resolve(CFG["dataset"])/"manifest.json"
- assert json.loads(prerequisite.read_text())["transitions"]>0
+ if os.environ.get("TASK1_EVAL")!="1" or os.environ.get("TASK1_ONLINE_LEARN")=="1":
+  prerequisite=resolve(CFG["dataset"])/"manifest.json"
+  assert json.loads(prerequisite.read_text())["transitions"]>0
  scene=ROOT/"tasks/task1_dimm_insert/scene/collection.usda"
  protected=[scene,Path(runtime.__file__),ROOT/"tasks/task1_dimm_insert/env/actions.py"]
  protected_before={str(x):hashlib.sha256(x.read_bytes()).hexdigest() for x in protected}

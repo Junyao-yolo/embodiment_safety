@@ -1,0 +1,12 @@
+{
+  "reason": "User requested stop at 107 accepted trajectories",
+  "collector_pid": 1998733,
+  "tracked_pids": [
+    1998733,
+    3650844,
+    3650849,
+    3711481,
+    3711494
+  ],
+  "requested_at": "2026-11-05 11:07:13"
+}

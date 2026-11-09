@@ -1,0 +1,1 @@
+{"pid": 1929285, "command": ["/mnt/data2/isaacsim-5.0.0/python.sh", "-B", "tools/task1_lab_parallel_v001/benchmark_ik.py", "--trace", "outputs/datasets/task1/parallel_diverse_v006/attempt_023/ik_trace.jsonl", "--output", "profile_output/task1_collection_opt_20261104", "--samples", "120"]}

@@ -1,0 +1,1 @@
+{"pid": 1953494, "command": ["algos/diffusion_policy/.venv/bin/python", "-B", "-m", "tools.task1_lab_parallel_v001.collect", "--output", "outputs/datasets/task1/parallel_speed_check_v001", "--successes", "2", "--max-attempts", "2", "--workers", "2", "--episodes-per-process", "20", "--seed", "2026110721"]}

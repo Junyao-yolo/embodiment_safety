@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "target": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "error_m": 8.676832184887768e-07,
+      "nfev": 21,
+      "bounded": true,
+      "termination": "physical_pose_tolerance"
+    },
+    {
+      "target": [
+        2.0,
+        0.0,
+        0.0
+      ],
+      "error_m": 1.0,
+      "nfev": 3,
+      "bounded": true,
+      "termination": "numerical_solver"
+    }
+  ]
+}

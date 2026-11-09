@@ -1,0 +1,9 @@
+{
+  "python": "/mnt/data2/wjy_SERL/Embodied_Safety/algos/diffusion_policy/.venv/bin/python",
+  "additional_packages": [
+    "robomimic==0.2.0"
+  ],
+  "install_target": "/mnt/data2/wjy_SERL/Embodied_Safety/tools/tool_hang_benchmark_v001/official_deps",
+  "install_dependencies": false,
+  "scope": "official benchmark process only"
+}

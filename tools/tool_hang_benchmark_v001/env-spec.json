@@ -1,0 +1,42 @@
+{
+  "base_python": "/mnt/data2/wjy_SERL/Embodied_Safety/algos/diffusion_policy/.venv/bin/python",
+  "base_torch": "2.7.0+cu128",
+  "install_target": "/mnt/data2/wjy_SERL/Embodied_Safety/tools/tool_hang_benchmark_v001/deps",
+  "pip_phases": [
+    [
+      "free-mujoco-py==2.1.6",
+      "Cython==0.29.37",
+      "glfw==2.6.5",
+      "cffi==1.17.1",
+      "pycparser==2.22",
+      "av==12.3.0",
+      "imagecodecs==2022.9.26"
+    ]
+  ],
+  "robosuite_source": "https://github.com/cheng-chi/robosuite/archive/277ab9588ad7a4f4b55cf75508b44aa67ec171f0.tar.gz",
+  "pytorch3d_source": "https://github.com/facebookresearch/pytorch3d/archive/refs/tags/v0.7.7.tar.gz",
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "0",
+    "OMP_NUM_THREADS": "4",
+    "MKL_NUM_THREADS": "4",
+    "OPENBLAS_NUM_THREADS": "4",
+    "MUJOCO_GL": "egl"
+  },
+  "writes_to_base_environment": false,
+  "smoke": {
+    "command": "algos/diffusion_policy/.venv/bin/python -u tools/tool_hang_benchmark_v001/smoke.py",
+    "expect": "TOOL_HANG_SMOKE_OK"
+  },
+  "source_edits": [
+    {
+      "path": "deps/robosuite/models/arenas/multi_table_arena.py",
+      "old": "from collections import Iterable",
+      "new": "from collections.abc import Iterable"
+    },
+    {
+      "path": "deps/robosuite/utils/placement_samplers.py",
+      "old": "collections.Iterable",
+      "new": "collections.abc.Iterable"
+    }
+  ]
+}
