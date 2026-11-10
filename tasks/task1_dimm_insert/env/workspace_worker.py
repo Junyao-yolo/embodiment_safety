@@ -57,8 +57,14 @@ def main(out):
             images = {
                 key: obs[key] for key in ("external", "wrist_left", "wrist_right")
             }
-            send(connection, {"kind": "action", "images": images, "state": state})
-            response = receive(connection)
+            requested = json.loads(request.read_text())
+            if "teacher_action" in requested:
+                response = dict(action=np.asarray(requested["teacher_action"], dtype=np.float32),
+                    inference_performed=False, **requested["teacher_info"])
+            else:
+                send(connection, {"kind": "action", "images": images, "state": state})
+                response = receive(connection)
+                response["action_source"] = "student"
             if response.get("error"):
                 raise ValueError(response["error"])
             action = response.pop("action")
@@ -91,3 +97,4 @@ if __name__ == "__main__":
     except BaseException:
         write(output / "worker_error.json", {"error": traceback.format_exc()})
         raise
+

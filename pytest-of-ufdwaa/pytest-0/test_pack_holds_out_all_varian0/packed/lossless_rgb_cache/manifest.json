@@ -1,0 +1,11 @@
+{
+  "status": "finished",
+  "rows": 51,
+  "cameras": [
+    "external",
+    "wrist_left",
+    "wrist_right"
+  ],
+  "frames_verified": 153,
+  "all_pixels_equal": true
+}

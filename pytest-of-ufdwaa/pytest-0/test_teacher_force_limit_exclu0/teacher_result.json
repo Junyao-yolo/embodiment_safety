@@ -1,0 +1,13 @@
+{
+  "teacher_started": true,
+  "error": "teacher_force_limit:dimm_environment_N",
+  "task_completed": false,
+  "training_eligible": false,
+  "unsafe_teacher_intervals": 1,
+  "realignments": 0,
+  "elapsed_sim_s": 1,
+  "elapsed_wall_s": 5.173496901988983e-06,
+  "final_stage": "INSERT",
+  "end": {},
+  "interpretation": "teacher_attempt_unsuccessful_not_proof_of_mechanical_impossibility"
+}

@@ -1,0 +1,13 @@
+{
+  "teacher_started": false,
+  "error": "handoff_grasp_not_stable",
+  "task_completed": false,
+  "training_eligible": false,
+  "unsafe_teacher_intervals": 0,
+  "realignments": 0,
+  "elapsed_sim_s": null,
+  "elapsed_wall_s": null,
+  "final_stage": null,
+  "end": {},
+  "interpretation": "teacher_attempt_unsuccessful_not_proof_of_mechanical_impossibility"
+}

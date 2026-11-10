@@ -95,6 +95,10 @@ try:
  stopped=False;failure=None;executed_steps=0;calls=0;initial=None;final=None
  frozen=None;check=None
  live_frames=[]; evidence_monitor=None; evaluator=None; last_obs=None
+ recovery=None
+ if os.environ.get("TASK1_CONTACT_RECOVERY"):
+  from tasks.task1_dimm_insert.env.contact_recovery import ContactRecovery
+  recovery=ContactRecovery(p,os.environ["TASK1_CONTACT_RECOVERY"],OUT)
  def capture(n,raw):
   global evidence_monitor,evaluator,last_obs,terminal_label,evidence_warning_intervals
   if evaluator is None:
@@ -142,6 +146,7 @@ try:
   if initial is None:initial=clean(raw)
   if terminal_label and (terminal_label['terminated'] or terminal_label['truncated']):
    final=clean(raw);stopped=True
+   if recovery:recovery.finish(raw,terminal_label)
    write("time_limit_event.json",dict(time=p.t,full_transitions=n))
    p.finish("success_request" if terminal_label["success"] else "interrupted",terminal_label.get("failure") or "episode_end")
    p.disable()
@@ -156,7 +161,17 @@ try:
    p.disable()
    write("policy_stop.json",dict(final_observation_index=n,reason="diagnostic_stage_verified:"+STOP_STAGE))
    return np.zeros(7)
-  write(f"request_{n:03d}.json",dict(index=n,sim_time=p.t))
+  request=dict(index=n,sim_time=p.t)
+  if recovery:
+   teacher_action=recovery.step(n,raw,terminal_label,p.cfg["action"])
+   if recovery.error:
+    final=clean(raw);stopped=True
+    p.finish("interrupted","teacher:"+recovery.error);p.disable()
+    write("policy_stop.json",dict(final_observation_index=n,reason="teacher:"+recovery.error))
+    return np.zeros(7)
+   if teacher_action is not None:
+    request.update(teacher_action=teacher_action.tolist(),teacher_info=recovery.last_info)
+  write(f"request_{n:03d}.json",request)
   deadline=time.monotonic()+360
   path=OUT/f"action_{n:03d}.json"
   while not path.exists():
@@ -308,3 +323,4 @@ finally:
  if log:log.close()
  timing.close()
  if app:app.close()
+

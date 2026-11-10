@@ -22,6 +22,7 @@ class Task1ImageRunner(BaseImageRunner):
         wall_seconds=2700,
         metric_prefix="test",
         safety_mode="warn",
+        recovery_config=None,
         isaac_python="/mnt/data2/isaacsim-5.0.0/python.sh",
     ):
         super().__init__(output_dir)
@@ -32,12 +33,16 @@ class Task1ImageRunner(BaseImageRunner):
         self.wall_seconds = float(wall_seconds)
         self.prefix = metric_prefix
         self.safety_mode = safety_mode
+        self.recovery_config = recovery_config
         self.isaac_python = isaac_python
 
     def run(self, policy):
+        if self.n_test == 0:
+            return {}
         out = next_rollout_dir(self.output_dir)
         config = dict(
             input_variant=self.variant,
+            recovery_config=self.recovery_config,
             n_test=self.n_test,
             test_start_seed=self.seed,
             max_steps=self.max_steps,
@@ -78,6 +83,9 @@ class Task1ImageRunner(BaseImageRunner):
                     TASK1_MAX_FREE_GOAL_LEAD_M=".03",
                     TASK1_IK_ROTATION_TOLERANCE_RAD=".002",
                 )
+                env.pop("TASK1_CONTACT_RECOVERY", None)
+                if self.recovery_config:
+                    env["TASK1_CONTACT_RECOVERY"] = str(self.recovery_config)
                 started = time.monotonic()
                 timed_out = False
                 try:
@@ -110,6 +118,8 @@ class Task1ImageRunner(BaseImageRunner):
                     **report,
                 }
                 row.update(label_summary(dest))
+                if (dest / "teacher_result.json").exists():
+                    row["teacher_recovery"] = json.loads((dest / "teacher_result.json").read_text())
                 raw = sorted(dest.glob("raw_*.json"), key=lambda p: int(p.stem.rsplit("_", 1)[1]))
                 if raw:
                     t0 = json.loads(raw[0].read_text())["sim_time"]
@@ -150,7 +160,7 @@ class Task1ImageRunner(BaseImageRunner):
                 safe = sum(bool(x["full_task_success"]) for x in results)
                 summary = dict(
                     requested=self.n_test,
-                    teacher_enabled=False,
+                    teacher_enabled=bool(self.recovery_config),
                     action_steps=policy.n_action_steps,
                     stage_counts={stage: sum(stage in x.get("stages", []) for x in results)
                                   for stage in ("both_open", "grasp_clear", "insertion_ready", "seated_locked")},
@@ -178,4 +188,5 @@ class Task1ImageRunner(BaseImageRunner):
         }
         print(json.dumps({"rollout": str(out), **metrics}), flush=True)
         return metrics
+
 
