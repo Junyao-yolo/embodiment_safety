@@ -230,13 +230,14 @@ try:
  report['finger_control']={'stiffness_N_m':400.,'damping_Ns_m':15.,'effort_cap_N':15.}
  if collection_config:
   from feedback import JointCommandLimits,FeedbackExpert,RecoveryRouter
+  from dagger_router import DaggerRouter
   from interface import observation_state
   if not np.array_equal(ai,np.arange(7)):raise RuntimeError("Task2 joint contract order changed")
   expert=FeedbackExpert(solve,lambda arm:solver.compute_forward_kinematics('panda_hand',arm),JointCommandLimits(q))
   if collection_config["method"]=="dagger":
    from client import PolicyClient
-   policy_client=PolicyClient(collection_config["checkpoint"],device=collection_config.get("policy_device","cpu"),n_action_steps=collection_config["n_action_steps"],fixed_noise=collection_config["fixed_noise"],seed=args.seed)
-  router=RecoveryRouter(expert,collection_config,args.seed,policy_client)
+   policy_client=PolicyClient(collection_config["checkpoint"],device=collection_config.get("policy_device","cpu"),n_action_steps=collection_config["n_action_steps"],fixed_noise=collection_config["fixed_noise"],seed=args.seed,backend=collection_config.get("policy_backend","legacy"))
+  router=(DaggerRouter if collection_config["method"]=="dagger" else RecoveryRouter)(expert,collection_config,args.seed,policy_client)
   expert_label=q.copy()
  jp0=np.array([stage.GetPrimAtPath(f'/wire1/Bend_{i:02d}').GetAttribute('physics:localPos0').Get() for i in range(23)])
  jp1=np.array([stage.GetPrimAtPath(f'/wire1/Bend_{i:02d}').GetAttribute('physics:localPos1').Get() for i in range(23)])
@@ -343,7 +344,7 @@ try:
      reason=reset_request.read_text().strip();reset_request.unlink()
      raise RuntimeError('Assembly attempt reset: '+reason)
     print('STATE',json.dumps({k:rec[k] for k in ['time_s','phase','ring_x','ring_y','ring_z','clamp_N']}),flush=True)
-    if progress_callback is not None:progress_callback({k:rec[k] for k in ['time_s','phase','ring_x','ring_y','ring_z','clamp_N']},performance_snapshot())
+    if progress_callback is not None:progress_callback(dict({k:rec[k] for k in ['time_s','phase','ring_x','ring_y','ring_z','clamp_N']}, execution_counts=router.counts if router else {}, phase_execution_counts=getattr(router,'phase_counts',{}), teacher_interventions=router.interventions if router else 0),performance_snapshot())
  def setup_render():
   import omni.replicator.core as rep
   if hasattr(setup_render,'anns'):return
@@ -399,16 +400,33 @@ try:
  def control_schedule(steps,settle_steps=0):
   if expert is None:
    yield from range(steps+settle_steps);return
-  from distillation_v001.teacher import MotionProgress,MotionTimeout
+  from motion_progress import MotionProgress,MotionTimeout
   completion=.006 if phase=="thread_turn" else .002
   tracker=MotionProgress(steps,settle_steps,completion_error=completion)
-  while True:
-   yield tracker.index
-   try:
-    if tracker.update(expert.tracking_error(latest),float(np.max(np.abs(expert.limits.velocity)))):return
-   except MotionTimeout as exc:
-    report.setdefault("incomplete_reference_tracking_phases",[]).append(phase)
-    raise RuntimeError("Expert could not complete "+phase+": "+str(exc)) from exc
+  original_override=router.teacher_override
+  original_reason=getattr(router,"teacher_override_reason","task_recovery")
+  recovery_extended=False
+  try:
+   while True:
+    if collection_config["method"]=="dagger" and tracker.cursor>=tracker.steps:
+     router.teacher_override=True
+     router.teacher_override_reason="phase_completion"
+    yield tracker.index
+    try:
+     if tracker.update(expert.tracking_error(latest),float(np.max(np.abs(expert.limits.velocity)))):return
+    except MotionTimeout as exc:
+     if collection_config["method"]=="dagger" and not recovery_extended:
+      recovery_extended=True
+      router.teacher_override=True
+      router.teacher_override_reason="motion_timeout_recovery"
+      tracker.budget=tracker.elapsed+1800
+      report.setdefault("teacher_timeout_recoveries",[]).append(dict(phase=phase,time_s=stepnum/physics_hz,error_m=expert.tracking_error(latest)))
+      continue
+     report.setdefault("incomplete_reference_tracking_phases",[]).append(phase)
+     raise RuntimeError("Expert could not complete "+phase+": "+str(exc)) from exc
+  finally:
+   router.teacher_override=original_override
+   router.teacher_override_reason=original_reason
  def hold_feedback(seconds):
   global expert_label,action_source
   # Preserve physical verification time; no artificial nonzero action.
@@ -662,6 +680,8 @@ finally:
  report['measurements_path']=str(Path(globals().get('_diagnostics_root',ARTIFACTS/'attempt_results'))/('measurements_'+str(args.seed)+'.npz'))
  if router is not None:
   report["execution_counts"]=router.counts;report["expert_interventions"]=router.interventions
+  report["teacher_events"]=getattr(router,"events",[])
+  report["phase_execution_counts"]=getattr(router,"phase_counts",{})
   report["policy_executed_fraction"]=router.counts["policy"]/max(sum(router.counts.values()),1)
  if policy_client is not None:policy_client.close()
  report['motion_segments']=motion_segments

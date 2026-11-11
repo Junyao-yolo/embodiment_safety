@@ -8,7 +8,9 @@ class PolicyClient:
   python=root/"algos/diffusion_policy/.venv/bin/python"
   env=os.environ.copy()
   for key in ("PYTHONHOME","PYTHONPATH","LD_LIBRARY_PATH"):env.pop(key,None)
-  self.proc=subprocess.Popen([str(python),"-B","-u",str(Path(__file__).with_name("worker.py")),str(checkpoint),device,json.dumps(execution)],stdin=subprocess.PIPE,stdout=subprocess.PIPE,env=env)
+  backend=execution.pop("backend","legacy")
+  worker=root/"learning/controller/task2_worker.py" if backend=="official_hybrid" else Path(__file__).with_name("worker.py")
+  self.proc=subprocess.Popen([str(python),"-B","-u",str(worker),str(checkpoint),device,json.dumps(execution)],stdin=subprocess.PIPE,stdout=subprocess.PIPE,env=env)
  def act(self,images,state):
   buf=io.BytesIO();np.savez(buf,state=np.asarray(state,np.float32),**images);payload=buf.getvalue()
   self.proc.stdin.write(struct.pack("!I",len(payload))+payload);self.proc.stdin.flush()

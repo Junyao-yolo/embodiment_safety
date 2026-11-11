@@ -179,5 +179,5 @@ algos/diffusion_policy/.venv/bin/python -B -m learning.import_checkpoint \
 - Task1 正在运行的 3090 实验继续使用其原配置和生命周期脚本；其恢复/回传流程仍依赖 `tools/task1_official_compare_v001`。统一入口不接管在途进程。
 - 上游 Workspace 的 resume 轮数与学习率调度按其自身实现处理。跨不同训练预算续训不能视为与原定完整预算等价；本项目尚未验证这类断点恢复的调度连续性。
 - Task2 当前安全评估使用已冻结的螺丝装配经验边界；根部拉力和过弯仍作测量，实物损伤阈值未标定，损伤率为 null。安全完成率只适用于记录的评估范围。
-- Task2 历史 DAgger 混合采集使用独立 PolicyClient 格式；Workspace 权重尚未接入该采集接口。部分专家标签的纠偏数据需标签掩码适配。
+- Task2 DAgger 采集可通过 learning/controller/task2_worker.py 调用官方 Hybrid 策略。新增 Task2DaggerDataset 保留验证划分并混合采样纠偏和原示范；FinetuneDiffusionUnetHybridWorkspace 沿用官方训练循环，加载已有权重并使用新优化器。当前采集入口读取官方策略原始 model/config 检查点；历史部分标签数据仍需单独的标签掩码适配。
 - 接口短测验证数据对齐、梯度更新、权重加载与物理执行；不能代替完整预算的策略成功率测试。

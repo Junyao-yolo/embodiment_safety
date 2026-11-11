@@ -1,0 +1,16 @@
+{
+  "teacher_started": true,
+  "error": "release_without_verified_seating",
+  "task_completed": false,
+  "training_eligible": false,
+  "unsafe_teacher_intervals": 0,
+  "realignments": 0,
+  "elapsed_sim_s": 1,
+  "elapsed_wall_s": 2.9418617486953735e-05,
+  "final_stage": "RELEASE",
+  "end": {
+    "seated_operational": false,
+    "closure_history": false
+  },
+  "interpretation": "teacher_attempt_unsuccessful_not_proof_of_mechanical_impossibility"
+}

@@ -61,7 +61,7 @@ def pack(cases, output):
     return manifest
 
 
-def initialize(parent, recovery_path, output, epochs=3):
+def initialize(parent, recovery_path, output, epochs=3, save_initial=True):
     from learning.bootstrap import configure
     configure()
     import dill
@@ -90,7 +90,8 @@ def initialize(parent, recovery_path, output, epochs=3):
     cfg.checkpoint.topk.format_str='epoch={epoch:04d}-val_loss={val_loss:.6f}.ckpt'
     train=output/'train';checkpoint=train/'checkpoints/latest.ckpt';checkpoint.parent.mkdir(parents=True,exist_ok=True)
     payload=dict(cfg=cfg,state_dicts=dict(model=weights,ema_model=weights),pickles=dict(global_step=dill.dumps(0),epoch=dill.dumps(0)))
-    torch.save(payload,checkpoint,pickle_module=dill)
+    if save_initial:
+        torch.save(payload,checkpoint,pickle_module=dill)
     OmegaConf.save(cfg,output/'finetune.yaml')
     plan=dict(parent=str(parent),initial_weights='ema',optimizer='fresh AdamW',normalizer='parent unchanged',
         learning_rate=1e-5,batch_size=32,epochs=epochs,original_window_fraction=.75,teacher_window_fraction=.25,
