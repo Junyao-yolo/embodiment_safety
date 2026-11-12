@@ -146,6 +146,7 @@ def main():
             if rank==0:
                 loaded=torch.load(out/'latest.ckpt',map_location='cpu',pickle_module=dill,weights_only=False)
                 ema_policy.load_state_dict(loaded['state_dicts']['ema_model']);del loaded
+                ema_policy.cuda()
                 ema_policy.eval();sample=ds[0]
                 obs=dict_apply(sample['obs'],lambda x:x[None].cuda())
                 with torch.no_grad():action=ema_policy.predict_action(obs)['action']
